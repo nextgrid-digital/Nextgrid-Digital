@@ -1,0 +1,19 @@
+# Ghost CMS for the Thinking (blog) section.
+# Start: docker compose up -d   (or: npm run ghost:start)
+# Stop:  docker compose down
+# Admin: http://localhost:2368/ghost
+
+services:
+  ghost:
+    image: ghost:5.x
+    container_name: ghost-nextgrid
+    restart: unless-stopped
+    ports:
+      - "2368:2368"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ghost_data:/var/lib/ghost/content
+
+volumes:
+  ghost_data:

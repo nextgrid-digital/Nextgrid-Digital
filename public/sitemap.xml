@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://nextgrid.com/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://nextgrid.com/how-we-build</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nextgrid.com/work</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nextgrid.com/work/client-systems</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/work/studio-experiments</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/ventures</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nextgrid.com/ventures/collectfast</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/ventures/beonly</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/ventures/cas-parser</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/thinking</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nextgrid.com/thinking/execution</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/thinking/systems</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/thinking/learning-in-public</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nextgrid.com/principles</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nextgrid.com/work-with-us</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nextgrid.com/about</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://nextgrid.com/contact</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+</urlset>

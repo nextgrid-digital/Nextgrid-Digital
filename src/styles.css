@@ -1,0 +1,116 @@
+/* Font must be first for CSS spec */
+@import '@fontsource/geist-mono/400.css';
+@import '@fontsource/geist-mono/500.css';
+@import '@fontsource/geist-mono/600.css';
+@import '@fontsource/geist-mono/700.css';
+@import '@fontsource/geist/400.css';
+@import '@fontsource/geist/500.css';
+@import '@fontsource/geist/600.css';
+@import '@fontsource/geist/700.css';
+@import "tailwindcss";
+
+/* Cursor-style design: CSS variables for light/dark */
+
+:root,
+.theme-light {
+  --font-mono: 'Geist Mono', monospace;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Swiss-style modular grid */
+  --grid-columns: 12;
+  --gutter: 1.5rem;
+  --grid-gap: var(--gutter);
+  --bg: #FAFAFA;
+  --bg-card: #ffffff;
+  --text: #0a0a0a;
+  --text-muted: #6b6b6b;
+  --accent: #FF4747;
+  --accent-hover: #e63d3d;
+  --border: #E5E5E5;
+  --button-bg: #2C2C2C;
+  --button-hover: #1a1a1a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --section-border: rgba(0, 0, 0, 0.06);
+}
+
+.theme-dark {
+  --font-mono: 'Geist Mono', monospace;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --grid-columns: 12;
+  --gutter: 1.5rem;
+  --grid-gap: var(--gutter);
+  --bg: #1A1A1A;
+  --bg-card: #252525;
+  --text: #F9F7F5;
+  --text-muted: #a0a0a0;
+  --accent: #FF4747;
+  --accent-hover: #ff5c5c;
+  --border: #3a3a3a;
+  --button-bg: #2C2C2C;
+  --button-hover: #3d3d3d;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --section-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-mono);
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Landing / page content: Geist (sans). Nav and footer keep body's Geist Mono. */
+.landing-font {
+  font-family: var(--font-sans);
+}
+
+/* Responsive text: prevent overflow and allow natural wrapping */
+main, article, [role="main"] {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+/* Accent links (Cursor-style "Learn more") */
+a.link-accent,
+.link-accent {
+  color: var(--accent);
+}
+a.link-accent:hover {
+  opacity: 0.9;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Swiss-style 12-column grid (sections opt in) */
+.grid-swiss {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+}
+
+/* View Transitions API */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root) {
+    animation: fade-out 0.2s ease-out;
+  }
+  ::view-transition-new(root) {
+    animation: fade-in 0.25s ease-in;
+  }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
