@@ -11,3 +11,7 @@ count.txt
 .output
 .vinxi
 todos.json
+
+# Local MCP / bulk-push artifacts (not part of the app)
+.mcp-batches/
+.github-mcp-push-*.json
