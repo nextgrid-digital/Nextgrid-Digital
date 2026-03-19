@@ -27,25 +27,27 @@ function SystemsPage() {
       description="Thoughts on systems and how they work."
     >
       {posts.length > 0 ? (
-        <ul className="mt-6 space-y-4">
+        <ul className="mt-6 space-y-0 list-none p-0">
           {posts.map((post) => (
-            <li key={post.id} className="border-b border-slate-700/50 pb-4">
+            <li key={post.id} className="site-post-row">
               <Link
                 to="/thinking/$slug"
                 params={{ slug: post.slug } as { slug: string }}
                 viewTransition
-                className="link-accent font-medium"
+                className="site-inline-link font-semibold"
               >
                 {post.title}
               </Link>
               {post.excerpt && (
-                <p className="text-muted text-sm mt-1 line-clamp-2">{post.excerpt}</p>
+                <p className="site-muted mt-1 line-clamp-2">{post.excerpt}</p>
               )}
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-muted">Posts tagged Systems will appear here when Ghost is configured.</p>
+        <p className="site-muted">
+          Posts tagged Systems will appear here when Ghost is configured.
+        </p>
       )}
     </PageLayout>
   )

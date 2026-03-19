@@ -61,11 +61,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           }}
         />
       </head>
-      <body className="flex min-h-screen flex-col" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
+      <body className="flex min-h-screen flex-col">
         <ThemeProvider>
           <ModeProvider>
             <Header />
-            <div className="flex-1 landing-font">{children}</div>
+            <div className="flex flex-1 flex-col">{children}</div>
             <Footer />
             <FloatingModeTab />
           </ModeProvider>

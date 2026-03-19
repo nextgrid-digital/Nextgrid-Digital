@@ -28,21 +28,29 @@ export const Route = createFileRoute('/styleguide')({
 function StyleguidePage() {
   const [tabIndex, setTabIndex] = useState(0)
   return (
-    <main style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
-      <Section>
-        <Container maxWidth="4xl">
-          <Heading level={1} className="mb-2">
-            Styleguide
-          </Heading>
-          <Text muted className="mb-12">
-            All site components and layouts. Changes here update the design system site-wide.
-          </Text>
+    <main className="site-page">
+      <div className="site-panel site-pad-md" style={{ marginTop: 12 }}>
+        <h1 className="site-h1">Styleguide</h1>
+        <p className="site-body mb-10">
+          Live chrome uses theme tokens (light/dark) and Geist. Legacy UI primitives
+          below remain for component testing.
+        </p>
 
-          {/* Typography */}
-          <section className="mb-16">
-            <Heading level={2} className="mb-6">
-              Typography
-            </Heading>
+        <div className="site-demo-block mb-8">
+          <div className="site-pad-md">
+            <h2 className="site-h2" style={{ fontSize: '1.15rem' }}>
+              Typography (marketing / site)
+            </h2>
+            <p className="site-body">Body — execution studio, systems-first copy.</p>
+            <p className="site-caption">Caption / secondary line</p>
+          </div>
+        </div>
+
+        <div className="site-demo-block mb-8">
+          <div className="site-pad-md">
+            <h2 className="site-h2" style={{ fontSize: '1.15rem' }}>
+              Typography (legacy UI)
+            </h2>
             <div className="space-y-4">
               <Heading level={1}>Heading 1</Heading>
               <Heading level={2}>Heading 2</Heading>
@@ -50,25 +58,27 @@ function StyleguidePage() {
               <Text>Default body text.</Text>
               <Text muted>Muted body text.</Text>
             </div>
-          </section>
+          </div>
+        </div>
 
-          {/* Button */}
-          <section className="mb-16">
-            <Heading level={2} className="mb-6">
+        <div className="site-demo-block mb-8">
+          <div className="site-pad-md">
+            <h2 className="site-h2" style={{ fontSize: '1.15rem' }}>
               Button
-            </Heading>
+            </h2>
             <div className="flex flex-wrap gap-4">
               <Button to="/work-with-us">Primary (link)</Button>
               <Button variant="secondary">Secondary</Button>
               <Button onClick={() => {}}>Primary (button)</Button>
             </div>
-          </section>
+          </div>
+        </div>
 
-          {/* Card */}
-          <section className="mb-16">
-            <Heading level={2} className="mb-6">
+        <div className="site-demo-block mb-8">
+          <div className="site-pad-md">
+            <h2 className="site-h2" style={{ fontSize: '1.15rem' }}>
               Card
-            </Heading>
+            </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <Card>
                 <Heading level={3} className="mb-2">
@@ -95,21 +105,23 @@ function StyleguidePage() {
                 <Text muted>Any card content.</Text>
               </Card>
             </div>
-          </section>
+          </div>
+        </div>
 
-          {/* AccentLink */}
-          <section className="mb-16">
-            <Heading level={2} className="mb-6">
+        <div className="site-demo-block mb-8">
+          <div className="site-pad-md">
+            <h2 className="site-h2" style={{ fontSize: '1.15rem' }}>
               AccentLink
-            </Heading>
+            </h2>
             <AccentLink to="/thinking">Read more</AccentLink>
-          </section>
+          </div>
+        </div>
 
-          {/* Tabs */}
-          <section className="mb-16">
-            <Heading level={2} className="mb-6">
+        <div className="site-demo-block mb-8">
+          <div className="site-pad-md">
+            <h2 className="site-h2" style={{ fontSize: '1.15rem' }}>
               Tabs
-            </Heading>
+            </h2>
             <Tabs
               tabs={[
                 { label: 'Tab one' },
@@ -129,23 +141,25 @@ function StyleguidePage() {
             <TabsPanel hidden={tabIndex !== 2}>
               <Text muted>Content for tab three.</Text>
             </TabsPanel>
-          </section>
+          </div>
+        </div>
 
-          {/* Section / Container */}
-          <section className="mb-16">
-            <Heading level={2} className="mb-6">
+        <div className="site-demo-block mb-8">
+          <div className="site-pad-md">
+            <h2 className="site-h2" style={{ fontSize: '1.15rem' }}>
               Section & Container
-            </Heading>
+            </h2>
             <Section borderTop>
               <Container maxWidth="2xl">
                 <Text>
-                  A Section with border-top and a Container (max-w-2xl) with sample content.
+                  A Section with border-top and a Container (max-w-2xl) with sample
+                  content.
                 </Text>
               </Container>
             </Section>
-          </section>
-        </Container>
-      </Section>
+          </div>
+        </div>
+      </div>
     </main>
   )
 }

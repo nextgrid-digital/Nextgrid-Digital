@@ -1,207 +1,280 @@
 import { Link, useRouterState } from '@tanstack/react-router'
 import { useState } from 'react'
 import { ChevronDown, Menu, X } from 'lucide-react'
-import ThemeSwitcher from './ThemeSwitcher'
+import { ctaNav, moreNav, primaryNav, type NavGroupItem } from '@/data/navigation'
 import Logo from './Logo'
-import { Button } from '@/components/ui'
-
-const mainNav = [
-  { to: '/how-we-build', label: 'How We Build' },
-  {
-    label: 'Work',
-    to: '/work',
-    children: [
-      { to: '/work/client-systems', label: 'Client Systems' },
-      { to: '/work/studio-experiments', label: 'Studio Experiments' },
-    ],
-  },
-  {
-    label: 'Ventures',
-    to: '/ventures',
-    children: [
-      { to: '/ventures/collectfast', label: 'CollectFast' },
-      { to: '/ventures/beonly', label: 'BeOnly' },
-      { to: '/ventures/cas-parser', label: 'CAS Parser' },
-    ],
-  },
-  { to: '/thinking', label: 'Thinking' },
-  { to: '/principles', label: 'Principles' },
-  { to: '/work-with-us', label: 'Work With Us' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-] as const
 
 function isActivePath(pathname: string, to: string) {
   if (to === '/') return pathname === '/'
   return pathname === to || pathname.startsWith(to + '/')
 }
 
+function navLinkClass(pathname: string, to: string, base = 'site-nav-link') {
+  const active = isActivePath(pathname, to)
+  if (base === '') {
+    return active ? 'site-nav-link--active' : ''
+  }
+  return active ? `${base} site-nav-link--active` : base
+}
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [expanded, setExpanded] = useState<string | null>(null)
+  const [expandedDesktop, setExpandedDesktop] = useState<string | null>(null)
+  const [expandedMobile, setExpandedMobile] = useState<string[]>([])
   const pathname = useRouterState({ select: (s) => s.location.pathname })
 
+  const moreActive = moreNav.some((item) => isActivePath(pathname, item.to))
+
+  function isItemActive(item: NavGroupItem) {
+    if (isActivePath(pathname, item.to)) return true
+    return item.children?.some((child) => isActivePath(pathname, child.to)) ?? false
+  }
+
+  function toggleMobileGroup(to: string) {
+    setExpandedMobile((current) =>
+      current.includes(to)
+        ? current.filter((value) => value !== to)
+        : [...current, to]
+    )
+  }
+
+  function closeMobileMenu() {
+    setIsOpen(false)
+    setExpandedMobile([])
+  }
+
+  function renderDesktopItem(item: NavGroupItem) {
+    if (!item.children) {
+      return (
+        <Link key={item.to} to={item.to} viewTransition className={navLinkClass(pathname, item.to)}>
+          {item.label}
+        </Link>
+      )
+    }
+
+    const isExpanded = expandedDesktop === item.label
+    const isActive = isItemActive(item)
+    return (
+      <div
+        key={item.to}
+        className="site-nav-dd-wrap"
+        onMouseEnter={() => setExpandedDesktop(item.label)}
+        onMouseLeave={() => setExpandedDesktop(null)}
+      >
+        <Link
+          to={item.to}
+          viewTransition
+          className={isActive ? 'site-nav-link site-nav-link--active' : 'site-nav-link'}
+        >
+          {item.label}
+          <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2} />
+        </Link>
+        {isExpanded && (
+          <div className="site-nav-dd" role="menu">
+            {item.children.map((child) => (
+              <Link
+                key={child.to}
+                to={child.to}
+                viewTransition
+                className={navLinkClass(pathname, child.to, '')}
+                role="menuitem"
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  function renderMobileItem(item: NavGroupItem) {
+    if (!item.children) {
+      return (
+        <li key={item.to} className="m-0 p-0">
+          <Link
+            to={item.to}
+            viewTransition
+            className={navLinkClass(pathname, item.to, 'site-nav-mobile-link')}
+            onClick={closeMobileMenu}
+          >
+            {item.label}
+          </Link>
+        </li>
+      )
+    }
+
+    const isExpanded = expandedMobile.includes(item.to)
+    const isActive = isItemActive(item)
+    return (
+      <li key={item.to} className="m-0 p-0">
+        <button
+          type="button"
+          className={
+            isActive
+              ? 'site-nav-mobile-group site-nav-mobile-group--active'
+              : 'site-nav-mobile-group'
+          }
+          onClick={() => toggleMobileGroup(item.to)}
+          aria-expanded={isExpanded}
+          aria-controls={`mobile-group-${item.to.replaceAll('/', '-')}`}
+        >
+          <span>{item.label}</span>
+          <ChevronDown className={isExpanded ? 'site-chevron site-chevron--open' : 'site-chevron'} size={16} />
+        </button>
+        {isExpanded && (
+          <ul
+            id={`mobile-group-${item.to.replaceAll('/', '-')}`}
+            className="site-nav-mobile-sub list-none m-0 p-0"
+          >
+            <li className="m-0 p-0">
+              <Link
+                to={item.to}
+                viewTransition
+                className={navLinkClass(pathname, item.to, 'site-nav-mobile-sub-link')}
+                onClick={closeMobileMenu}
+              >
+                Overview
+              </Link>
+            </li>
+            {item.children.map((child) => (
+              <li key={child.to} className="m-0 p-0">
+                <Link
+                  to={child.to}
+                  viewTransition
+                  className={navLinkClass(pathname, child.to, 'site-nav-mobile-sub-link')}
+                  onClick={closeMobileMenu}
+                >
+                  {child.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    )
+  }
+
   return (
-    <header
-      className="sticky top-0 z-40 border-b transition-colors"
-      style={{
-        backgroundColor: 'var(--bg)',
-        borderColor: 'var(--border)',
-      }}
-    >
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header className="site-header sticky top-0 z-40">
+      <div className="site-nav-shell">
         <Link
           to="/"
           viewTransition
-          className="flex items-center gap-2 text-lg font-semibold transition-opacity hover:opacity-80"
-          style={{ color: 'var(--text)' }}
+          className="site-nav-brand"
           aria-label="Nextgrid Digital – Home"
         >
-          <Logo height={28} />
-          <span className="hidden sm:inline">Nextgrid Digital</span>
+          <span className="site-nav-brand-logo">
+            <Logo height={28} />
+          </span>
         </Link>
 
-        {/* Desktop: centered nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {mainNav.map((item) =>
-            'children' in item ? (
-              <div
-                key={item.to}
-                className="relative group"
-                onMouseEnter={() => setExpanded(item.label)}
-                onMouseLeave={() => setExpanded(null)}
-              >
-                <Link
-                  to={item.to}
-                  viewTransition
-                  className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                  style={{
-                    color: isActivePath(pathname, item.to) ? 'var(--accent)' : 'var(--text-muted)',
-                  }}
-                  activeProps={{
-                    style: { color: 'var(--accent)' },
-                  }}
-                >
-                  {item.label}
-                  <ChevronDown className="w-4 h-4 opacity-70" />
-                </Link>
-                {expanded === item.label && (
-                  <div
-                    className="absolute top-full left-0 mt-1 py-1 min-w-[180px] rounded-md shadow-lg border"
-                    style={{
-                      backgroundColor: 'var(--bg-card)',
-                      borderColor: 'var(--border)',
-                      boxShadow: 'var(--shadow-md)',
-                    }}
+        <nav className="site-nav-desktop" aria-label="Primary">
+          {primaryNav.map(renderDesktopItem)}
+          <div
+            className="site-nav-dd-wrap"
+            onMouseEnter={() => setExpandedDesktop('More')}
+            onMouseLeave={() => setExpandedDesktop(null)}
+          >
+            <button
+              type="button"
+              className={moreActive ? 'site-nav-link site-nav-link--active' : 'site-nav-link'}
+              aria-expanded={expandedDesktop === 'More'}
+            >
+              More
+              <ChevronDown className="h-3.5 w-3.5 opacity-70" strokeWidth={2} />
+            </button>
+            {expandedDesktop === 'More' && (
+              <div className="site-nav-dd" role="menu">
+                {moreNav.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    viewTransition
+                    className={navLinkClass(pathname, item.to, '')}
+                    role="menuitem"
                   >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.to}
-                        to={child.to}
-                        viewTransition
-                        className="block px-4 py-2 text-sm transition-colors hover:opacity-80"
-                        style={{
-                          color: isActivePath(pathname, child.to) ? 'var(--accent)' : 'var(--text)',
-                        }}
-                        activeProps={{
-                          style: { color: 'var(--accent)' },
-                        }}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                    {item.label}
+                  </Link>
+                ))}
               </div>
-            ) : (
-              <Link
-                key={item.to}
-                to={item.to}
-                viewTransition
-                className="px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                style={{
-                  color: isActivePath(pathname, item.to) ? 'var(--accent)' : 'var(--text-muted)',
-                }}
-                activeProps={{
-                  style: { color: 'var(--accent)' },
-                }}
-              >
-                {item.label}
-              </Link>
-            )
-          )}
+            )}
+          </div>
         </nav>
 
-        {/* Right: theme toggle + CTA */}
-        <div className="flex items-center gap-2">
-          <ThemeSwitcher />
-          <Button to="/contact" className="hidden sm:inline-flex !px-4 !py-2 !text-sm">
-            Work With Us
-          </Button>
+        <div className="site-nav-actions">
+          <Link to={ctaNav.to} viewTransition className="site-nav-cta">
+            {ctaNav.label}
+          </Link>
           <button
             type="button"
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md transition-opacity hover:opacity-80"
-            style={{ color: 'var(--text)' }}
+            className="site-nav-menu-btn"
+            onClick={() => setIsOpen((current) => !current)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
+            {isOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile nav */}
-      {isOpen && (
-        <nav
-          className="md:hidden border-t px-4 py-4"
-          style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}
-        >
-          <ul className="flex flex-col gap-1">
-            {mainNav.map((item) =>
-              'children' in item ? (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    viewTransition
-                    onClick={() => setIsOpen(false)}
-                    className="block px-3 py-2 rounded-md text-sm font-medium"
-                    style={{ color: 'var(--text)' }}
-                  >
-                    {item.label}
-                  </Link>
-                  <ul className="ml-4 mt-1 flex flex-col gap-1">
-                    {item.children.map((child) => (
-                      <li key={child.to}>
-                        <Link
-                          to={child.to}
-                          viewTransition
-                          onClick={() => setIsOpen(false)}
-                          className="block px-3 py-2 rounded-md text-sm"
-                          style={{ color: 'var(--text-muted)' }}
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ) : (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    viewTransition
-                    onClick={() => setIsOpen(false)}
-                    className="block px-3 py-2 rounded-md text-sm font-medium"
-                    style={{ color: 'var(--text)' }}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              )
+      <nav
+        className={
+          isOpen ? 'site-nav-mobile site-nav-mobile--open' : 'site-nav-mobile'
+        }
+        aria-label="Mobile primary"
+      >
+        <ul className="list-none m-0 p-0">
+          {primaryNav.map(renderMobileItem)}
+          <li className="m-0 p-0">
+            <button
+              type="button"
+              className={
+                moreActive
+                  ? 'site-nav-mobile-group site-nav-mobile-group--active'
+                  : 'site-nav-mobile-group'
+              }
+              onClick={() => toggleMobileGroup('/more')}
+              aria-expanded={expandedMobile.includes('/more')}
+              aria-controls="mobile-group-more"
+            >
+              <span>More</span>
+              <ChevronDown
+                className={
+                  expandedMobile.includes('/more')
+                    ? 'site-chevron site-chevron--open'
+                    : 'site-chevron'
+                }
+                size={16}
+              />
+            </button>
+            {expandedMobile.includes('/more') && (
+              <ul id="mobile-group-more" className="site-nav-mobile-sub list-none m-0 p-0">
+                {moreNav.map((item) => (
+                  <li key={item.to} className="m-0 p-0">
+                    <Link
+                      to={item.to}
+                      viewTransition
+                      className={navLinkClass(pathname, item.to, 'site-nav-mobile-sub-link')}
+                      onClick={closeMobileMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             )}
-          </ul>
-        </nav>
-      )}
+          </li>
+        </ul>
+        <Link
+          to={ctaNav.to}
+          viewTransition
+          className="site-nav-mobile-cta"
+          onClick={closeMobileMenu}
+        >
+          {ctaNav.label}
+        </Link>
+      </nav>
     </header>
   )
 }

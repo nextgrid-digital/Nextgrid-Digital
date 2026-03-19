@@ -8,6 +8,7 @@
 @import '@fontsource/geist/600.css';
 @import '@fontsource/geist/700.css';
 @import "tailwindcss";
+@import "./styles/site.css";
 
 /* Cursor-style design: CSS variables for light/dark */
 

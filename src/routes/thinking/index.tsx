@@ -26,48 +26,38 @@ function ThinkingIndexPage() {
       title="Thinking"
       description="Essays and posts on how we work and learn."
     >
-      <nav className="flex flex-col gap-4 mt-6">
-        <Link
-          to="/thinking/execution"
-          viewTransition
-          className="link-accent underline"
-        >
+      <nav className="flex flex-col gap-3 mt-2">
+        <Link to="/thinking/execution" viewTransition className="site-inline-link">
           Execution
         </Link>
-        <Link
-          to="/thinking/systems"
-          viewTransition
-          className="link-accent underline"
-        >
+        <Link to="/thinking/systems" viewTransition className="site-inline-link">
           Systems
         </Link>
         <Link
           to="/thinking/learning-in-public"
           viewTransition
-          className="link-accent underline"
+          className="site-inline-link"
         >
           Learning in Public
         </Link>
       </nav>
       {posts.length > 0 ? (
-        <ul className="mt-8 space-y-4">
+        <ul className="mt-8 space-y-0 list-none p-0">
           {posts.map((post) => (
-            <li key={post.id} className="border-b border-slate-700/50 pb-4">
+            <li key={post.id} className="site-post-row">
               <Link
                 to="/thinking/$slug"
                 params={{ slug: post.slug } as { slug: string }}
                 viewTransition
-                className="link-accent font-medium"
+                className="site-inline-link font-semibold"
               >
                 {post.title}
               </Link>
               {post.excerpt && (
-                <p className="text-muted text-sm mt-1 line-clamp-2">
-                  {post.excerpt}
-                </p>
+                <p className="site-muted mt-1 line-clamp-2">{post.excerpt}</p>
               )}
               {post.published_at && (
-                <time className="text-muted text-xs mt-1 block">
+                <time className="site-muted text-xs mt-1 block">
                   {new Date(post.published_at).toLocaleDateString()}
                 </time>
               )}
@@ -75,7 +65,7 @@ function ThinkingIndexPage() {
           ))}
         </ul>
       ) : (
-        <p className="mt-8 text-muted">
+        <p className="site-muted mt-8">
           Blog posts from Ghost will be listed here when configured. Set
           GHOST_URL and GHOST_CONTENT_API_KEY in .env.
         </p>

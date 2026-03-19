@@ -1,17 +1,24 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { useMode } from '@/context/ModeContext'
 import {
   hero,
   identity,
+  identityPillars,
   theShift,
   whyOldModelsBreak,
+  fragmentationCards,
   stance,
   howWeOperate,
+  operatingSteps,
   proof,
+  proofAreas,
+  proofMachineBullets,
   distribution,
   learning,
   ventures,
+  venturesTeaser,
   filter,
+  fitMatrix,
   bridge,
   invitation,
   testimonials,
@@ -19,27 +26,17 @@ import {
   proofImageCaption,
   venturesImageCaption,
 } from '@/data/home-copy'
-import { homeImages } from '@/data/home-images'
-import { getHomepageMarkdown } from '@/data/home-markdown'
-import {
-  Button,
-  Card,
-  Section,
-  Container,
-  Heading,
-  Text,
-  AccentLink,
-} from '@/components/ui'
+import { SiteSection } from '@/components/SiteSection'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
   head: () => ({
     meta: [
-      { title: 'Nextgrid Digital' },
+      { title: 'Nextgrid Digital — Venture & execution studio' },
       {
         name: 'description',
         content:
-          'Nextgrid Digital – how we build, work, ventures, thinking, and principles.',
+          'Nextgrid Digital builds systems that help ideas survive reality — commerce, regulated tools, GenAI at scale, and studio ventures.',
       },
     ],
   }),
@@ -49,316 +46,310 @@ function HomePage() {
   const { mode } = useMode()
   const m = mode
 
-  if (mode === 'machine') {
-    const markdown = getHomepageMarkdown()
-    return (
-      <main style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
-        <div className="max-w-3xl mx-auto px-4 py-8">
-          <pre
-            className="overflow-x-auto whitespace-pre-wrap font-mono text-sm rounded-lg border p-6"
-            style={{
-              color: 'var(--text)',
-              backgroundColor: 'var(--bg-card)',
-              borderColor: 'var(--border)',
-            }}
-          >
-            <code>{markdown}</code>
-          </pre>
-        </div>
-      </main>
-    )
-  }
-
   return (
-    <main style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
-      {/* 1. Hero */}
-      <section className="px-4 py-20 sm:px-6 sm:py-28 overflow-visible">
-        <Container maxWidth="4xl" className="grid-swiss text-left">
-          <div className="col-span-12 min-w-0">
-            <Heading
-              level={1}
-              className="break-words hyphens-none font-normal tracking-[-2.5px] md:mr-[-12vw] lg:mr-[-8vw]"
+    <main className="site-page">
+      <SiteSection variant="band">
+        <div className="site-pad-lg">
+          <span className="site-eyebrow">{hero[m].eyebrow}</span>
+          <h1 className="site-display">{hero[m].headline}</h1>
+          <p className="site-body">{hero[m].subhead}</p>
+          <p className="site-body">{hero[m].supporting}</p>
+          <div className="site-hero-actions">
+            <Link to="/work-with-us" className="site-btn site-btn--primary">
+              {hero[m].cta}
+            </Link>
+            <Link
+              to={hero[m].secondaryCta.to}
+              className="site-btn site-btn--ghost"
             >
-              {hero[m].headline}
-            </Heading>
+              {hero[m].secondaryCta.label}
+            </Link>
           </div>
-          <div className="col-span-12 md:col-span-8 max-w-3xl">
-            <Text muted preLine className="text-base sm:text-lg md:text-xl mb-10 break-words max-w-2xl">
-              {hero[m].subhead}
-            </Text>
-            <Button to="/work-with-us">{hero[m].cta}</Button>
+          {hero[m].caption && (
+            <p className="site-caption" style={{ marginTop: 14 }}>
+              {hero[m].caption}
+            </p>
+          )}
+        </div>
+      </SiteSection>
+
+      <SiteSection>
+        <div className="site-pad-md">
+          <h2 className="site-h2">{identity[m].title}</h2>
+          <p className="site-lead">{identity[m].lead}</p>
+          <p className="site-body">{identity[m].body}</p>
+          <div className="site-pillar-grid">
+            {identityPillars[m].map((pillar) => (
+              <div key={pillar.title} className="site-pillar">
+                <h3>{pillar.title}</h3>
+                <p>{pillar.body}</p>
+              </div>
+            ))}
           </div>
-          <div className="col-span-12 mt-16">
-            <img
-              src={homeImages.hero.src}
-              alt={homeImages.hero.alt}
-              width={homeImages.hero.width}
-              height={homeImages.hero.height}
-              className="w-full rounded-lg border object-cover"
-              style={{ borderColor: 'var(--border)' }}
-            />
-            {hero[m].caption && (
-              <Text muted className="text-sm mt-3">
-                {hero[m].caption}
-              </Text>
+        </div>
+      </SiteSection>
+
+      <SiteSection variant="band">
+        <div className="site-pad-md">
+          <h2 className="site-h2">{theShift[m].title}</h2>
+          <p className="site-body">{theShift[m].body}</p>
+        </div>
+      </SiteSection>
+
+      <SiteSection>
+        <div className="site-pad-md">
+          <h2 className="site-h2">{whyOldModelsBreak[m].title}</h2>
+          <p className="site-body">{whyOldModelsBreak[m].body}</p>
+          <div className="site-grid-4">
+            {fragmentationCards[m].map((card) => (
+              <div key={card.label} className="site-fragment-card">
+                <span className="site-fragment-label">{card.label}</span>
+                <p>{card.detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="site-pullquote" style={{ marginTop: 24 }}>
+            {whyOldModelsBreak[m].closing}
+          </p>
+        </div>
+      </SiteSection>
+
+      <SiteSection>
+        <div className="site-pad-md">
+          <h2 className="site-h2">{stance[m].title}</h2>
+          <p className="site-pullquote">{stance[m].pullQuote}</p>
+          <p className="site-body">{stance[m].body}</p>
+        </div>
+      </SiteSection>
+
+      <SiteSection>
+        <div className="site-pad-md">
+          <h2 className="site-h2">{howWeOperate[m].title}</h2>
+          <p className="site-body">{howWeOperate[m].intro}</p>
+          <div className="site-step-row">
+            {operatingSteps[m].map((step, i) => (
+              <div key={step.title} className="site-card">
+                <div className="site-step-num">{i + 1}</div>
+                <h3 className="site-step-title">{step.title}</h3>
+                <p className="site-step-text">{step.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </SiteSection>
+
+      <SiteSection>
+        <div className="site-split">
+          <div className="site-split__left">
+            <h2 className="site-h2">{proof[m].title}</h2>
+            <p className="site-body">{proof[m].intro}</p>
+            <div className="site-proof-grid">
+              {proofAreas[m].map((area) => (
+                <div key={area.title} className="site-proof-tile site-card">
+                  <h3>{area.title}</h3>
+                  <p>{area.detail}</p>
+                </div>
+              ))}
+            </div>
+            {m === 'machine' && (
+              <>
+                <ul className="site-list" style={{ marginTop: 16 }}>
+                  {proofMachineBullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className="site-body">{proof.machine.bodyEnd}</p>
+              </>
             )}
+            <Link
+              to="/work"
+              className="site-btn site-btn--ghost"
+              style={{ marginTop: 20 }}
+            >
+              Explore client &amp; studio work
+            </Link>
           </div>
-        </Container>
-      </section>
-
-      {/* 2. Identity */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {identity[m].title}
-            </Heading>
-            <Text muted preLine>{identity[m].body}</Text>
+          <div className="site-split__right">
+            <div
+              className="site-media site-media-muted"
+              style={{ minHeight: 280 }}
+            >
+              <span className="site-caption">{proofImageCaption[m]}</span>
+            </div>
           </div>
-        </Container>
-      </Section>
+        </div>
+      </SiteSection>
 
-      {/* 3. The Shift */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {theShift[m].title}
-            </Heading>
-            <Text muted preLine>{theShift[m].body}</Text>
+      <SiteSection>
+        <div className="site-pad-md">
+          <span className="site-eyebrow">Operators &amp; founders</span>
+          <h2 className="site-h2">How others are building</h2>
+          <p className="site-body" style={{ marginBottom: 20 }}>
+            Representative feedback from product, founder, and operator roles.
+            We use real names only when we have permission.
+          </p>
+          <div className="site-grid-3">
+            {testimonials.map((t) => (
+              <div key={t.name} className="site-card">
+                <div className="site-quote-mark">“</div>
+                <p className="site-quote">{t.quote}</p>
+                <div className="site-attr">{t.name}</div>
+                <div className="site-attr-meta">
+                  {t.role} — {t.company}
+                </div>
+              </div>
+            ))}
           </div>
-        </Container>
-      </Section>
+        </div>
+      </SiteSection>
 
-      {/* 4. Why old models break */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {whyOldModelsBreak[m].title}
-            </Heading>
-            <Text muted preLine>{whyOldModelsBreak[m].body}</Text>
+      <SiteSection>
+        <div className="site-pad-md">
+          <h2 className="site-h2">{distribution[m].title}</h2>
+          <p className="site-body">{distribution[m].body}</p>
+        </div>
+      </SiteSection>
+
+      <SiteSection variant="band">
+        <div className="site-pad-md">
+          <h2 className="site-h2">{learning[m].title}</h2>
+          <p className="site-body">{learning[m].body}</p>
+          <Link
+            to="/thinking"
+            className="site-btn site-btn--ghost"
+            style={{ marginTop: 8 }}
+          >
+            Open Thinking
+          </Link>
+        </div>
+      </SiteSection>
+
+      <SiteSection>
+        <div className="site-split">
+          <div className="site-split__left">
+            <h2 className="site-h2">{ventures[m].title}</h2>
+            <p className="site-body">{ventures[m].body}</p>
+            <div style={{ marginTop: 8 }}>
+              {venturesTeaser[m].map((item) => (
+                <div key={item.to} className="site-venture-row">
+                  <h3>{item.name}</h3>
+                  <p>{item.blurb}</p>
+                  <Link
+                    to={item.to}
+                    className="site-inline-link"
+                    style={{ fontSize: 12 }}
+                  >
+                    View {item.name} →
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <Link
+              to="/ventures"
+              className="site-btn site-btn--ghost"
+              style={{ marginTop: 16 }}
+            >
+              All ventures
+            </Link>
           </div>
-        </Container>
-      </Section>
-
-      {/* 5. Stance */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {stance[m].title}
-            </Heading>
-            <Text muted preLine>{stance[m].body}</Text>
+          <div className="site-split__right">
+            <div
+              className="site-media site-media-muted"
+              style={{ minHeight: 220 }}
+            >
+              <span className="site-caption">{venturesImageCaption[m]}</span>
+            </div>
           </div>
-        </Container>
-      </Section>
+        </div>
+      </SiteSection>
 
-      {/* 6. How we operate */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {howWeOperate[m].title}
-            </Heading>
-            <Text muted preLine>{howWeOperate[m].body}</Text>
+      <SiteSection>
+        <div className="site-pad-md">
+          <h2 className="site-h2">Recent on the blog</h2>
+          <p className="site-body" style={{ marginBottom: 20 }}>
+            Longer essays on execution, systems, and what we learn while shipping.
+          </p>
+          <div className="site-grid-3">
+            {recentBlogPosts.map((post) => (
+              <div key={post.to} className="site-card">
+                <div
+                  className="site-media site-media-muted"
+                  style={{ minHeight: 88, margin: '-20px -18px 14px' }}
+                >
+                  <span className="site-caption">Essay stub / art direction</span>
+                </div>
+                <div className="site-attr" style={{ fontSize: 14 }}>
+                  {post.title}
+                </div>
+                <p
+                  className="site-body"
+                  style={{ fontSize: 13, marginTop: 8 }}
+                >
+                  {post.excerpt}
+                </p>
+                <Link
+                  to={post.to}
+                  className="site-inline-link"
+                  style={{ fontSize: 12, marginTop: 8, display: 'inline-block' }}
+                >
+                  Read essays →
+                </Link>
+              </div>
+            ))}
           </div>
-        </Container>
-      </Section>
+        </div>
+      </SiteSection>
 
-      {/* 7. Proof */}
-      <Section borderTop>
-        <Container maxWidth="6xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-7 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {proof[m].title}
-            </Heading>
-            <Text muted preLine className="mb-4">
-              {m === 'human' ? proof.human.body : proof.machine.body}
-            </Text>
-            {m === 'machine' && proof.machine.bullets && (
-              <ul
-                className="list-disc pl-6 mb-4 space-y-2"
-                style={{ color: 'var(--text-muted)' }}
-              >
-                {proof.machine.bullets.map((item) => (
-                  <li key={item}>{item}</li>
+      <SiteSection>
+        <div className="site-pad-md">
+          <h2 className="site-h2">{filter[m].title}</h2>
+          <p className="site-body">{filter[m].intro}</p>
+          <div className="site-grid-2" style={{ marginTop: 20 }}>
+            <div className="site-fit-box">
+              <h3>Strong fit</h3>
+              <ul>
+                {fitMatrix[m].yes.map((item) => (
+                  <li key={item.slice(0, 40)}>{item}</li>
                 ))}
               </ul>
-            )}
-            {m === 'machine' && proof.machine.bodyEnd && (
-              <Text muted preLine className="mb-4">
-                {proof.machine.bodyEnd}
-              </Text>
-            )}
-            <AccentLink to="/work">Read more</AccentLink>
+            </div>
+            <div className="site-fit-box site-fit-box--invert">
+              <h3>Usually not a fit</h3>
+              <ul>
+                {fitMatrix[m].no.map((item) => (
+                  <li key={item.slice(0, 40)}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="col-span-12 md:col-span-5">
-            <img
-              src={homeImages.proof.src}
-              alt={homeImages.proof.alt}
-              width={homeImages.proof.width}
-              height={homeImages.proof.height}
-              className="w-full rounded-lg border object-cover"
-              style={{ borderColor: 'var(--border)' }}
-            />
-            <Text muted className="text-sm mt-2">
-              {proofImageCaption[m]}
-            </Text>
-          </div>
-        </Container>
-      </Section>
+        </div>
+      </SiteSection>
 
-      {/* How others are building */}
-      <Section borderTop>
-        <Container maxWidth="6xl" className="grid-swiss">
-          <Heading level={2} className="col-span-12 mb-10 text-left">
-            How others are building
-          </Heading>
-          {testimonials.map((t) => (
-            <Card key={t.name} className="col-span-12 sm:col-span-4">
-              <div
-                className="w-12 h-12 rounded-full mb-4 flex items-center justify-center text-sm font-medium"
-                style={{
-                  backgroundColor: 'var(--border)',
-                  color: 'var(--text-muted)',
-                }}
-              >
-                {t.name.charAt(0)}
-              </div>
-              <Heading level={3} className="mb-1">
-                {t.name}
-              </Heading>
-              <Text muted className="text-sm mb-4">
-                {t.role}, {t.company}
-              </Text>
-              <Text muted className="text-sm">
-                &ldquo;{t.quote}&rdquo;
-              </Text>
-            </Card>
-          ))}
-        </Container>
-      </Section>
+      <SiteSection>
+        <div className="site-callout">
+          <p className="site-body" style={{ marginBottom: 0 }}>
+            {bridge[m].body}
+          </p>
+        </div>
+      </SiteSection>
 
-      {/* 8. Distribution */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {distribution[m].title}
-            </Heading>
-            <Text muted preLine>{distribution[m].body}</Text>
+      <SiteSection>
+        <div className="site-pad-lg site-center">
+          <h2 className="site-h2">{invitation[m].title}</h2>
+          <p className="site-body">{invitation[m].body}</p>
+          <div className="site-hero-actions" style={{ justifyContent: 'center' }}>
+            <Link to="/work-with-us" className="site-btn site-btn--primary">
+              {invitation[m].cta}
+            </Link>
+            <Link
+              to={invitation[m].secondaryCta.to}
+              className="site-btn site-btn--ghost"
+            >
+              {invitation[m].secondaryCta.label}
+            </Link>
           </div>
-        </Container>
-      </Section>
-
-      {/* 9. Learning */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {learning[m].title}
-            </Heading>
-            <Text muted preLine>{learning[m].body}</Text>
-            <AccentLink to="/thinking" className="mt-4 block">
-              Read more
-            </AccentLink>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 10. Ventures */}
-      <Section borderTop>
-        <Container maxWidth="6xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-7 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {ventures[m].title}
-            </Heading>
-            <Text muted preLine>{ventures[m].body}</Text>
-            <AccentLink to="/ventures" className="mt-4 block">
-              Read more
-            </AccentLink>
-          </div>
-          <div className="col-span-12 md:col-span-5">
-            <img
-              src={homeImages.ventures.src}
-              alt={homeImages.ventures.alt}
-              width={homeImages.ventures.width}
-              height={homeImages.ventures.height}
-              className="w-full rounded-lg border object-cover"
-              style={{ borderColor: 'var(--border)' }}
-            />
-            <Text muted className="text-sm mt-2">
-              {venturesImageCaption[m]}
-            </Text>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Recent on the blog */}
-      <Section borderTop>
-        <Container maxWidth="6xl" className="grid-swiss">
-          <Heading level={2} className="col-span-12 mb-10 text-left">
-            Recent on the blog
-          </Heading>
-          {recentBlogPosts.map((post, i) => (
-            <Card key={post.to} className="col-span-12 sm:col-span-4">
-              <img
-                src={homeImages.blogThumbs[i].src}
-                alt={homeImages.blogThumbs[i].alt}
-                className="w-full h-32 object-cover rounded mb-4"
-                width={600}
-                height={200}
-              />
-              <Heading level={3} className="mb-2">
-                {post.title}
-              </Heading>
-              <Text muted className="text-sm mb-4">
-                {post.excerpt}
-              </Text>
-              <AccentLink to={post.to}>Read more</AccentLink>
-            </Card>
-          ))}
-        </Container>
-      </Section>
-
-      {/* 11. Filter */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-8 max-w-[65ch]">
-            <Heading level={2} className="mb-4">
-              {filter[m].title}
-            </Heading>
-            <Text muted preLine>{filter[m].body}</Text>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Bridge */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss">
-          <div className="col-span-12 md:col-span-7 max-w-[65ch]">
-            <Text muted preLine>
-              {bridge[m].body}
-            </Text>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 12. Invitation */}
-      <Section borderTop>
-        <Container maxWidth="2xl" className="grid-swiss text-left">
-          <div className="col-span-12 md:col-span-7">
-            <Heading level={2} className="mb-4">
-              {invitation[m].title}
-            </Heading>
-            <Text muted preLine className="mb-8">
-              {invitation[m].body}
-            </Text>
-            <Button to="/work-with-us">{invitation[m].cta}</Button>
-          </div>
-        </Container>
-      </Section>
+        </div>
+      </SiteSection>
     </main>
   )
 }

@@ -1,20 +1,25 @@
 /**
- * Builds a single markdown string from the machine variant of home-copy.
- * Used for the Machine view (raw markdown display).
- * 12 sections in story order.
+ * Machine view: single markdown string from machine variant copy.
  */
 import {
   hero,
   identity,
+  identityPillars,
   theShift,
   whyOldModelsBreak,
+  fragmentationCards,
   stance,
   howWeOperate,
+  operatingSteps,
   proof,
+  proofAreas,
+  proofMachineBullets,
   distribution,
   learning,
   ventures,
+  venturesTeaser,
   filter,
+  fitMatrix,
   invitation,
   bridge,
   footerStatement,
@@ -36,79 +41,104 @@ export function getHomepageMarkdown(): string {
   const b = bridge.machine
   const footer = footerStatement.machine
 
-  const sections: string[] = []
+  const lines: string[] = []
 
-  // 1. Hero
-  sections.push(`# ${h.headline}\n`)
-  sections.push(h.subhead)
-  sections.push(`\n[${h.cta}](/work-with-us)\n`)
+  lines.push(`# ${h.headline}\n`)
+  lines.push(`_${h.eyebrow}_\n`)
+  lines.push(h.subhead)
+  lines.push('')
+  lines.push(h.supporting)
+  lines.push(`\n[${h.cta}](/work-with-us) · [${h.secondaryCta.label}](${h.secondaryCta.to})\n`)
 
-  // 2. Identity
-  sections.push(`## ${id.title}\n`)
-  sections.push(id.body)
-  sections.push('')
-
-  // 3. The Shift
-  sections.push(`## ${ts.title}\n`)
-  sections.push(ts.body)
-  sections.push('')
-
-  // 4. Why old models break
-  sections.push(`## ${wom.title}\n`)
-  sections.push(wom.body)
-  sections.push('')
-
-  // 5. Stance
-  sections.push(`## ${st.title}\n`)
-  sections.push(st.body)
-  sections.push('')
-
-  // 6. How we operate
-  sections.push(`## ${ho.title}\n`)
-  sections.push(ho.body)
-  sections.push('')
-
-  // 7. Proof
-  sections.push(`## ${p.title}\n`)
-  sections.push(p.body)
-  sections.push('')
-  for (const bullet of p.bullets) {
-    sections.push(`- ${bullet}`)
+  lines.push(`## ${id.title}\n`)
+  lines.push(id.lead)
+  lines.push('')
+  lines.push(id.body)
+  lines.push('')
+  for (const pillar of identityPillars.machine) {
+    lines.push(`- **${pillar.title}** — ${pillar.body}`)
   }
-  sections.push(p.bodyEnd)
-  sections.push('')
+  lines.push('')
 
-  // 8. Distribution
-  sections.push(`## ${d.title}\n`)
-  sections.push(d.body)
-  sections.push('')
+  lines.push(`## ${ts.title}\n`)
+  lines.push(ts.body)
+  lines.push('')
 
-  // 9. Learning
-  sections.push(`## ${l.title}\n`)
-  sections.push(l.body)
-  sections.push('')
+  lines.push(`## ${wom.title}\n`)
+  lines.push(wom.body)
+  lines.push('')
+  for (const card of fragmentationCards.machine) {
+    lines.push(`- **${card.label}:** ${card.detail}`)
+  }
+  lines.push('')
+  lines.push(wom.closing)
+  lines.push('')
 
-  // 10. Ventures
-  sections.push(`## ${v.title}\n`)
-  sections.push(v.body)
-  sections.push('')
+  lines.push(`## ${st.title}\n`)
+  lines.push(`> ${st.pullQuote}\n`)
+  lines.push(st.body)
+  lines.push('')
 
-  // 11. Filter
-  sections.push(`## ${f.title}\n`)
-  sections.push(f.body)
-  sections.push('')
+  lines.push(`## ${ho.title}\n`)
+  lines.push(ho.intro)
+  lines.push('')
+  for (const step of operatingSteps.machine) {
+    lines.push(`### ${step.title}\n${step.text}\n`)
+  }
+  lines.push('')
 
-  // Bridge (no heading)
-  sections.push(b.body)
-  sections.push('')
+  lines.push(`## ${p.title}\n`)
+  lines.push(p.intro)
+  lines.push('')
+  for (const area of proofAreas.machine) {
+    lines.push(`- **${area.title}:** ${area.detail}`)
+  }
+  lines.push('')
+  for (const bullet of proofMachineBullets) {
+    lines.push(`- ${bullet}`)
+  }
+  lines.push('')
+  lines.push(p.bodyEnd)
+  lines.push('')
 
-  // 12. Invitation
-  sections.push(`## ${i.title}\n`)
-  sections.push(i.body)
-  sections.push(`\n[${i.cta}](/work-with-us)\n`)
+  lines.push(`## ${d.title}\n`)
+  lines.push(d.body)
+  lines.push('')
 
-  // Footer
-  sections.push(footer)
+  lines.push(`## ${l.title}\n`)
+  lines.push(l.body)
+  lines.push('')
 
-  return sections.join('\n')
+  lines.push(`## ${v.title}\n`)
+  lines.push(v.body)
+  lines.push('')
+  for (const t of venturesTeaser.machine) {
+    lines.push(`- **${t.name}:** ${t.blurb} → [${t.name}](${t.to})`)
+  }
+  lines.push('')
+
+  lines.push(`## ${f.title}\n`)
+  lines.push(f.intro)
+  lines.push('')
+  lines.push('**Fit**')
+  for (const item of fitMatrix.machine.yes) {
+    lines.push(`- ${item}`)
+  }
+  lines.push('')
+  lines.push('**No fit**')
+  for (const item of fitMatrix.machine.no) {
+    lines.push(`- ${item}`)
+  }
+  lines.push('')
+
+  lines.push(b.body)
+  lines.push('')
+
+  lines.push(`## ${i.title}\n`)
+  lines.push(i.body)
+  lines.push(`\n[${i.cta}](/work-with-us) · [${i.secondaryCta.label}](${i.secondaryCta.to})`)
+  lines.push('')
+  lines.push(footer)
+
+  return lines.join('\n')
 }
