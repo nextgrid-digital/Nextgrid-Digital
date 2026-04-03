@@ -1,8 +1,9 @@
 # Nextgrid Digital — Strategy Brief
 
-**Type:** LIGHTWEIGHT (research informed by live site copy in-repo and route architecture)  
-**Source:** `src/data/home-copy.ts`, `src/routes/index.tsx`, site navigation patterns  
-**Brand spelling in downstream deliverables:** **Nextgrid Digital** (canonical); avoid mixed “NextGrid / nextgrid” in customer-facing wireframes.
+**Status:** Full wireframer research (Phases 1–5)  
+**Canonical brand:** **Nextgrid Digital**  
+**Last updated:** 2026-04-03  
+**URL contract:** Paths in [`public/sitemap.xml`](../public/sitemap.xml) are fixed; copy and section order may evolve inside each route.
 
 ---
 
@@ -10,161 +11,112 @@
 
 ### Primary ICP
 
-**Profile:** Founder, product leader, or operator (often Head of Product, COO, or founder-led team) at a company navigating **complex execution** — commerce, fintech/insurance adjacency, or venture-backed teams shipping software + narrative + distribution together.
+**Who signs / who influences:** Economic buyer is often CEO, COO, or founder; **Head of Product / VP Engineering** influences; **procurement / IT** can block if governance is heavy.
 
-- **Trigger events (why now):** Handoffs between strategy, design, and engineering are failing; GenAI and automation changed expectations; internal tools or marketing systems need to **work in production**, not in decks.
-- **Pain stack (ranked):**
-  1. Intent lost across silos (strategy vs. tickets vs. campaigns).
-  2. “Delivery” that stops at launch while reality still demands iteration.
-  3. Vendors who optimize for hours and handoffs instead of outcomes.
-- **Success criteria:** One continuous loop — clarify intent, ship, observe, refine — with a partner who **stays in the loop** until systems meet reality.
-- **Objections:** “We already have an agency / dev shop.” “This sounds expensive vs. staff aug.” “We need task execution, not philosophy.”
+**Profile:** Senior operator or founder at a team where **strategy, design, engineering, and GTM drift** — especially in commerce, regulated digital, or AI-augmented workflows.
 
-### Secondary ICP (short)
+| Dimension | Detail |
+|-----------|--------|
+| **Trigger events** | Post-funding mandate to ship; repeated launch slips; GenAI pilot that cannot pass compliance or production bar; agency handoff that “finished” while the product still breaks. |
+| **Daily pain (ranked)** | 1) Intent dies between deck and backlog. 2) Shipping celebrated while adoption and reliability are fragile. 3) Vendors optimize for hours and tickets, not owned outcomes. |
+| **Vocabulary they use** | “Thin slice,” “telemetry,” “handoff,” “tech debt,” “GTM,” “guardrails,” “audit trail,” “roadmap honesty.” |
+| **Previous attempts** | Big consultancies (roadmaps only); retainers (noise); offshore body shops (velocity without orchestration); internal hires (great people, wrong scope sequencing). |
+| **Why it failed** | Misaligned incentives; no single loop for narrative + interface + services; leadership reviews vanity metrics. |
+| **Fears** | Career risk from betting on wrong vendor; AI without controls; another “digital transformation” theater. |
+| **Success vision** | Measurable behavior change in production; team can run the system without heroics; decisions traceable to data. |
 
-1. **Enterprise innovation / platform leads** experimenting with GenAI and large commerce environments — need execution systems, not slideware.  
-2. **Brand-side operators** (e.g. jewellery / luxury distribution) needing marketing and distribution **systems**, not one-off campaigns.
+**Objections:** “We have an agency.” “Too philosophical.” “Just need devs.” → Answer with **outcome + loop** and honest **not a fit** filter.
+
+### Secondary ICP
+
+1. **Enterprise / platform product lead** — GenAI and orchestration at scale with evals and integration reality.  
+2. **Brand-side operator** — luxury / seasonal commerce; distribution and marketing must match product truth.
 
 ---
 
 ## Phase 2 — Competitor landscape
 
-| Actor | Claimed category | Strength | Gap / weakness | Site priority |
-|--------|------------------|----------|----------------|---------------|
-| **Traditional digital agency** | Campaigns, creative retainers | Brand and craft | Hours, handoffs, weak ownership post-launch | Case studies → contact |
-| **Staff augmentation / dev shop** | Engineers on demand | Velocity on tickets | Thin orchestration; intent fragmentation persists | Rate cards / SOW |
-| **Strategy consultancies** | Roadmaps, operating models | Clarity at leadership layer | Weak on build; long cycles | Partner intro |
-| **Product studios (peer set)** | Venture building, product | Integrated build | Often narrow on distribution or regulated domains | Portfolio → call |
-| **Status quo (do nothing)** | — | No change cost | Strategy in decks, reality arrives late | — |
+| Actor | Positioning | Strength | Gap | Voice |
+|-------|-------------|----------|-----|--------|
+| **Digital agency** | Creative + retainers | Craft, brand | Handoffs; weak post-launch ownership | Polished, vague on systems |
+| **Staff aug / dev shop** | Bodies on tickets | Raw throughput | Fragmented intent; you still orchestrate | Transactional |
+| **Strategy consultancy** | Frameworks, exec alignment | Clarity upstairs | Thin on build and iteration | Formal |
+| **Product / venture studio (peers)** | Build + ship | Integrated product | Often lighter on regulated + GTM depth | Confident |
+| **Status quo** | — | No vendor risk | Slow truth; compounding fragility | — |
 
 ### Gap map
 
-- **Crowded claims:** “We ship fast,” “full stack,” “partnership,” “innovation.”
-- **Empty territory:** **Execution as a single loop** (intent + narrative + system) with explicit rejection of “task outsourcing” and emphasis on **post-launch** distribution and learning.
-- **Winnable wedge:** **Venture and execution studio** — not a service company; proof from **regulated tooling, commerce systems, and self-operated ventures.**
+- **Crowded:** “Innovation,” “digital transformation,” “we ship fast,” undifferentiated AI claims.  
+- **Empty territory:** **Owned loop** from intent → live system → telemetry → governed iteration; **ventures as proof**, not decoration; **honest disqualification**.  
+- **Winnable wedge:** **Venture + execution studio** — same team narrates, designs, builds, and stays through awkward post-launch reality.
 
 ---
 
 ## Phase 3 — Brand positioning
 
-1. **Category to own:** Venture and execution studio (systems that survive reality, not deliverables-for-hire).
-2. **Positioning statement:** For **founders and operators** who can’t afford handoff theatre, **Nextgrid Digital** is the **execution studio** that **collapses distance between intent, narrative, and software** unlike **traditional agencies and ticket-based vendors** because **we stay in the loop through distribution, feedback, and iteration.**
-3. **Three UVPs**
-   - **Continuous execution** — Thinking and building aren’t separated; learning is built in.
-   - **System-led, not people-heavy coordination** — Orchestration and reliability over silo multiplication.
-   - **Proof from hard domains** — Commerce, GenAI at scale, fintech/insurance tools, studio ventures.
-4. **Tone of voice**
-   - **Do:** Plain, declarative, slightly provocative (“Not a service company”).
-   - **Do:** Name the fracture (decks vs. tickets vs. silos).
-   - **Don’t:** Buzzword soup (“synergy,” “unlock,” “world-class”).
-   - **Don’t:** Promise vague transformation without mechanisms.
-5. **Words to own vs. avoid**
-   - **Own:** execution, systems, loop, reality, clarity, studio, intent, distribution, learning.
-   - **Avoid:** outsource, tickets-as-product, retainer-for-its-own-sake, handoff.
+1. **Category to own:** Venture and **execution studio** (not agency, not fund, not staff aug).  
+2. **Positioning statement:** For operators who cannot afford another handoff, **Nextgrid Digital** is the **execution studio** that **keeps intent, product, and GTM in one accountable loop** — unlike siloed agencies or ticket shops — **because we build client systems and operate our own ventures under the same constraints**.  
+3. **Three UVPs:**  
+   - **One loop** — narrative, UX, and services versioned together.  
+   - **Proof in market** — studio ventures + regulated/commerce depth.  
+   - **Honest scope** — small first releases when reality demands it.  
+4. **Tone:** Direct, operator-native, skeptical of theatre; admit trade-offs; short sentences in Machine lens; warmer scenario-led in Human lens.  
+5. **Words to own:** execution, loop, telemetry, thin slice, venture studio, handoff, ground truth.  
+6. **Words to avoid:** “Full-service digital,” “award-winning” filler, magic AI promises.
 
 ---
 
 ## Phase 4 — Messaging hierarchy
 
-### Hero headlines (three angles)
+### Hero headline variants
 
-1. **Outcome:** We build systems that help ideas survive reality.  
-2. **Pain:** Where strategy, design, and engineering drift apart — we collapse that distance.  
-3. **Proof / stance:** Built through doing — from commerce systems to regulated internal tools.
+1. **Outcome:** Systems that survive reality — from intent to live usage.  
+2. **Pain:** Stop losing strategy in the handoffs.  
+3. **Proof:** Built as a studio — client systems and ventures in one loop.
 
-### Sub-headline (human lens)
-
-Nextgrid Digital is a venture and execution studio. We work where business intent, storytelling, and software meet — staying close to real execution.
-
-### CTAs
-
-- **Primary:** Work with us → `/work-with-us` (hero); Start a conversation → `/work-with-us` (invitation).  
-- **Secondary (contextual):** Read more → `/work`; Thinking → `/thinking`; Ventures → `/ventures`.
-
-### Section headline bank (homepage)
-
-| Section | Recommended | Alt |
-|---------|-------------|-----|
-| Identity | Not a service company. | Studios, not retainers. |
-| The shift | The way work gets done is changing. | Execution is being restructured. |
-| Friction | Where execution breaks. | Fragmentation is the default. |
-| Stance | Our stance. | One execution loop. |
-| Operating model | How we operate. | Clarify → deploy → observe → refine. |
-| Proof | Built through doing. | Execution record. |
-| Social proof | How others are building. | Teams we stay in the loop with. |
-| Post-launch | Execution doesn’t end at launch. | Distribution completes the loop. |
-| Learning | Learning is built in. | R&D in the open. |
-| Ventures | We build our own things. | Live testbeds. |
-| Fit | Who this is for. | Engagement criteria. |
-| Invitation | If this resonates. | Start a conversation. |
+**Primary CTA:** Work with us → `/work-with-us`  
+**Secondary:** How we build → `/how-we-build`
 
 ### Proof ledger
 
 | Item | Status |
 |------|--------|
-| Domains: commerce/jewellery, GenAI commerce, fintech/insurance tooling, studio ventures | **Have** (as claims in site copy) |
-| Named testimonials (Sarah Chen, James Okonkwo, Maya Reddy) | **Draft / hypothetical** — mark clearly until approved |
-| Logo wall | **Need** — not in current copy |
+| Domain tiles (commerce, GenAI scale, regulated, ventures) | Have (narrative) |
+| Named testimonials | Illustrative placeholders — replace with permissioned quotes |
+| Metrics | Need real numbers when available — do not fabricate |
 
 ---
 
-## Phase 5 — Page architecture
+## Phase 5 — Page architecture & wireframe backlog
 
-### Site map (URL-level, matches app routes)
+Wireframe backlog: `Page → Sections` (order = narrative arc).
 
-| Path | Role |
-|------|------|
-| `/` | Homepage — full narrative, dual “human / machine” lens in product |
-| `/how-we-build` | Method — how the studio engages and ships |
-| `/principles` | Beliefs and non-negotiables |
-| `/work-with-us` | Commercial path / fit — primary conversion |
-| `/about` | Team, origin, credibility |
-| `/contact` | Direct contact / form |
-| `/work` | Work hub |
-| `/work/client-systems` | Stream: partner/client execution |
-| `/work/studio-experiments` | Stream: experiments / R&D |
-| `/ventures` | Ventures hub |
-| `/ventures/collectfast`, `/ventures/beonly`, `/ventures/cas-parser` | Product/venture detail |
-| `/thinking` | Blog index (Ghost when configured) |
-| `/thinking/execution`, `/thinking/systems`, `/thinking/learning-in-public` | Topic hubs |
-| `/thinking/:slug` | Article |
-| `/styleguide` | Internal / design reference |
+| URL | Arc | Sections |
+|-----|-----|----------|
+| `/` | Tension → who we are → shift → fragmentation → stance → how we work → proof → social proof → beyond launch → learning → ventures → blog teaser → fit → bridge → CTA | Hero (var A/B/C), Identity + pillars, Shift band, Execution breaks + cards, Stance quote, How we operate (var A/B/C), Proof split, Testimonials (var A/B), Distribution, Learning, Ventures split, Recent Thinking, Fit matrix, Lens bridge, Closing CTA (var A/B) |
+| `/how-we-build` | Principles of delivery → loop | Frame problem, Shape plan, Execute loops (var), Prove with artifacts, Transition to system |
+| `/work` | Why two tracks → choose | Why dual, Two tracks, Connection, Standard, Explore |
+| `/work/client-systems` | Context → pain → approach → outcomes | Context, Challenges, Delivery approach tiles, Outcomes, Cross-link |
+| `/work/studio-experiments` | Why experiment → method → output | Purpose, Design, Method trio, Output, Cross-link |
+| `/ventures` | Thesis → selection → portfolio rhythm | Thesis, Selection, Portfolio cards, Rhythm, Explore |
+| `/ventures/collectfast` | Problem → direction → focus → impact | Problem, Direction, Build focus, Impact, Portfolio nav |
+| `/ventures/beonly` | Problem → thesis → assumptions → validation | User problem, Thesis, Assumptions grid, Validation, Nav |
+| `/ventures/cas-parser` | Challenge → objective → capabilities → outcome | Document challenge, Objective, Capabilities, Outcome, Nav |
+| `/thinking` | Depth + taxonomy | Intro, Tag links, Post list / empty state |
+| `/thinking/execution` | Tag archive | List + empty state |
+| `/thinking/systems` | Tag archive | List + empty state |
+| `/thinking/learning-in-public` | Tag archive | List + empty state |
+| `/thinking/$slug` | Article | Feature optional, Title, date, excerpt, body, related |
+| `/principles` | Values stack | Five principles (stacked) |
+| `/work-with-us` | Philosophy → models → fit | Philosophy, Models (var table + cards), Fit grid, Window, Next step |
+| `/about` | Credibility arc | Origin, Team, What we build, How we operate list, Client+ventures, Expectations |
+| `/contact` | Reduce friction | Context, What to include, Response, Engagement design, Intake link |
 
-### Wireframe backlog
-
-**Homepage (`/`)**  
-Narrative arc: **Recognition (friction) → Reframe (studio stance) → Mechanism (how we operate) → Proof → Social proof → Sustainment (distribution, learning) → Breadth (ventures, thinking) → Qualify → Act.**
-
-Section order (human lens):  
-1. Hero  
-2. Identity  
-3. The shift  
-4. Where execution breaks  
-5. Stance  
-6. How we operate  
-7. Built through doing (+ visual)  
-8. How others are building  
-9. Execution doesn’t end at launch  
-10. Learning is built in  
-11. We build our own things (+ visual)  
-12. Recent on the blog  
-13. Who this is for  
-14. Bridge (human vs machine lens)  
-15. Invitation  
-16. Footer (global)
-
-**Inner pages (IA only until copy ships):**  
-Each should move from **why this page exists** → **specific proof or mechanism** → **single primary CTA** (usually contact or work-with-us). See `NextgridDigital_InnerPages_IA_Wireframe.html`.
+**Not in sitemap:** `/styleguide` — internal only.
 
 ---
 
 ## Handoff
 
-Wireframe HTML artifacts live in `wireframes/`:
-
-- `NextgridDigital_Homepage_Wireframe.html` — content wireframe with section annotations and structural variations (includes **early ventures credibility lane** after “How we operate,” hero chip naming ventures, and **three section-11 venture layout variations**).  
-- `NextgridDigital_InnerPages_IA_Wireframe.html` — grouped IA wireframes for key routes.
-- `NextgridDigital_Venture_CollectFast_Wireframe.html` — venture detail narrative (intake / fulfilment).  
-- `NextgridDigital_Venture_BeOnly_Wireframe.html` — venture detail narrative (brand × automation R&D).  
-- `NextgridDigital_Venture_CASParser_Wireframe.html` — venture detail narrative (document → structured pipeline).  
-- `index.html` — links to all of the above.
+- **HTML wireframes:** `NextgridDigital_*_Wireframe.html` + `index.html` catalog.  
+- **App implementation:** `src/data/home-copy.ts` (Human/Machine), `src/data/marketing-pages.ts` (inner routes), `src/data/team.ts`, routes import data only where possible.

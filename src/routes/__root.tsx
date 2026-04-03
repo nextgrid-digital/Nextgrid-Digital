@@ -40,11 +40,11 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="theme-light">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('nextgrid-theme');if(t==='dark'||t==='light')document.documentElement.classList.add('theme-'+t);else if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.classList.add('theme-dark');else document.documentElement.classList.add('theme-light');})();`,
+            __html: `(function(){var r=document.documentElement;r.classList.remove('theme-light','theme-dark');var t=localStorage.getItem('nextgrid-theme');if(t==='dark'||t==='light')r.classList.add('theme-'+t);else if(window.matchMedia('(prefers-color-scheme: dark)').matches)r.classList.add('theme-dark');else r.classList.add('theme-light');})();`,
           }}
         />
         <HeadContent />

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { PageLayout } from '@/components/PageLayout'
+import { thinkingEmpty, thinkingIndexCopy } from '@/data/marketing-pages'
 import { getGhostPosts } from '@/lib/ghost'
 
 export const Route = createFileRoute('/thinking/')({
@@ -13,7 +14,7 @@ export const Route = createFileRoute('/thinking/')({
       { title: 'Thinking | Nextgrid Digital' },
       {
         name: 'description',
-        content: 'Essays and posts on execution, systems, and learning in public.',
+        content: thinkingIndexCopy.metaDescription,
       },
     ],
   }),
@@ -22,23 +23,20 @@ export const Route = createFileRoute('/thinking/')({
 function ThinkingIndexPage() {
   const { posts } = Route.useLoaderData()
   return (
-    <PageLayout
-      title="Thinking"
-      description="Essays and posts on how we work and learn."
-    >
+    <PageLayout title="Thinking" description={thinkingIndexCopy.intro}>
       <nav className="flex flex-col gap-3 mt-2">
         <Link to="/thinking/execution" viewTransition className="site-inline-link">
-          Execution
+          Execution — {thinkingIndexCopy.taglineExecution}
         </Link>
         <Link to="/thinking/systems" viewTransition className="site-inline-link">
-          Systems
+          Systems — {thinkingIndexCopy.taglineSystems}
         </Link>
         <Link
           to="/thinking/learning-in-public"
           viewTransition
           className="site-inline-link"
         >
-          Learning in Public
+          Learning in public — {thinkingIndexCopy.taglineLearning}
         </Link>
       </nav>
       {posts.length > 0 ? (
@@ -65,10 +63,7 @@ function ThinkingIndexPage() {
           ))}
         </ul>
       ) : (
-        <p className="site-muted mt-8">
-          Blog posts from Ghost will be listed here when configured. Set
-          GHOST_URL and GHOST_CONTENT_API_KEY in .env.
-        </p>
+        <p className="site-muted mt-8">{thinkingEmpty.index}</p>
       )}
     </PageLayout>
   )

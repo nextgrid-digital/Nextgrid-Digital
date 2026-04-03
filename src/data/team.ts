@@ -1,4 +1,4 @@
-/** Replace names, roles, and bios with your real team. Order is display order. */
+/** Team surfaced on About — replace with named individuals when you publish real bios. */
 
 export type TeamMember = {
   name: string
@@ -7,47 +7,27 @@ export type TeamMember = {
 }
 
 export const teamIntro =
-  'Operators, builders, and partners who run engagements end-to-end — from framing through launch and handoff.'
+  'A small studio of partners and senior builders — strategy, product, engineering, delivery, and ventures — who run work end-to-end rather than pass it down a bench.'
 
 export const teamMembers: TeamMember[] = [
   {
-    name: 'Add name',
-    role: 'Founding partner',
-    bio: 'Sets direction across client systems and studio ventures; leads senior relationships and portfolio bets.',
+    name: 'Studio partners',
+    role: 'Strategy & client leadership',
+    bio: 'Owns senior relationships, scope ethics, and portfolio-level bets across client systems and ventures.',
   },
   {
-    name: 'Add name',
-    role: 'Principal, engineering',
-    bio: 'Owns technical architecture, delivery quality, and how systems scale under real traffic and compliance.',
+    name: 'Lead engineers',
+    role: 'Architecture & delivery',
+    bio: 'Owns technical direction, production quality, and how systems behave under traffic, compliance, and incident reality.',
   },
   {
-    name: 'Add name',
-    role: 'Principal, product & design',
-    bio: 'Shapes product narrative, UX, and brand systems so shipped work stays coherent from prototype to production.',
+    name: 'Product & narrative',
+    role: 'UX, brand systems, GTM',
+    bio: 'Keeps story, interface, and go-to-market coherent from prototype through the boring maintenance phase.',
   },
   {
-    name: 'Add name',
-    role: 'Head of delivery',
-    bio: 'Runs cadence, scope, and stakeholder alignment so every sprint ends with something shippable and measurable.',
-  },
-  {
-    name: 'Add name',
-    role: 'Venture lead',
-    bio: 'Drives studio-owned products from thesis through validation, build, and early GTM.',
-  },
-  {
-    name: 'Add name',
-    role: 'Senior engineer',
-    bio: 'Ships full-stack features, integrations, and reliability work across client and internal codebases.',
-  },
-  {
-    name: 'Add name',
-    role: 'Product & GTM',
-    bio: 'Connects positioning, launches, and growth loops to the systems we build for clients and ventures.',
-  },
-  {
-    name: 'Add name',
-    role: 'Operations & finance',
-    bio: 'Keeps contracts, resourcing, and studio infrastructure predictable so teams stay focused on delivery.',
+    name: 'Delivery leads',
+    role: 'Cadence & alignment',
+    bio: 'Runs weekly truth — scope, stakeholders, and the next shippable increment — without diluting craft.',
   },
 ]

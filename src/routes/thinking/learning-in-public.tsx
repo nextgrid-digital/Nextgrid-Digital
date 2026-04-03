@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { PageLayout } from '@/components/PageLayout'
+import { thinkingEmpty, thinkingIndexCopy } from '@/data/marketing-pages'
 import { getGhostPostsByTag } from '@/lib/ghost'
 
 export const Route = createFileRoute('/thinking/learning-in-public')({
@@ -13,7 +14,7 @@ export const Route = createFileRoute('/thinking/learning-in-public')({
       { title: 'Learning in Public | Thinking | Nextgrid Digital' },
       {
         name: 'description',
-        content: 'Posts on learning in public and sharing the process.',
+        content: `${thinkingIndexCopy.taglineLearning} — Thinking | Nextgrid Digital.`,
       },
     ],
   }),
@@ -24,7 +25,7 @@ function LearningInPublicPage() {
   return (
     <PageLayout
       title="Learning in Public"
-      description="Learning in public and sharing the process."
+      description={thinkingIndexCopy.taglineLearning}
     >
       {posts.length > 0 ? (
         <ul className="mt-6 space-y-0 list-none p-0">
@@ -45,9 +46,7 @@ function LearningInPublicPage() {
           ))}
         </ul>
       ) : (
-        <p className="site-muted">
-          Posts tagged Learning in Public will appear here when Ghost is configured.
-        </p>
+        <p className="site-muted">{thinkingEmpty.tag}</p>
       )}
     </PageLayout>
   )

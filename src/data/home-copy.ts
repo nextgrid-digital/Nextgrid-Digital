@@ -1,29 +1,30 @@
 /**
  * Homepage copy — human + machine variants. Single source for landing content.
+ * Aligned to wireframes/NextgridDigital_Strategy_Brief.md (2026 refresh).
  */
 
 export const hero = {
   human: {
     eyebrow: 'Venture & execution studio',
-    headline: 'We build systems that help ideas survive reality.',
+    headline: 'Systems that survive reality — from intent to live usage.',
     subhead:
-      'Nextgrid Digital is a venture + execution studio. We build and operate ventures while delivering operator-led GTM engineering and AI systems for serious companies.',
+      'Nextgrid Digital is a venture + execution studio. We build ventures, ship client systems, and run operator-led GTM and AI workflows where stakes are high and handoffs fail.',
     supporting:
-      'We are AI-first, not AI-blind: agents where leverage is real, human judgment where context and accountability matter. This site itself is built and continuously updated through that same operating loop.',
+      'We are AI-first where leverage is real — and human-first where judgment, narrative, and accountability matter. This site is built and updated through the same loop we recommend to clients.',
     cta: 'Work with us',
     secondaryCta: { label: 'How we build', to: '/how-we-build' as const },
-    caption: 'Execution in motion: intent, narrative, and systems in one loop.',
+    caption: 'One accountable loop: clarify intent, ship a thin slice, instrument, iterate with evidence.',
   },
   machine: {
     eyebrow: 'Execution architecture',
-    headline: 'From intent to execution.',
+    headline: 'Closed-loop execution systems.',
     subhead:
-      'Nextgrid Digital designs and operates execution systems that convert intent into measurable, repeatable outcomes.',
+      'Nextgrid Digital designs and operates systems that convert intent into measurable production behavior — partner engagements and studio ventures share one operating model.',
     supporting:
-      'Partner engagements and studio-operated products share one loop: specify constraints, deploy interfaces, capture telemetry, iterate.',
-    cta: 'Enter the system',
+      'Specify constraints, deploy interfaces and services, capture telemetry, re-scope on evidence. Governance and adoption are part of scope — not postscript.',
+    cta: 'Initiate engagement',
     secondaryCta: { label: 'Operating model', to: '/how-we-build' as const },
-    caption: 'Intent to outcome: one execution loop.',
+    caption: 'Intent → deploy → observe → refine.',
   },
 } as const
 
@@ -31,59 +32,59 @@ export const identity = {
   human: {
     title: 'Not an agency. Not a VC fund.',
     lead:
-      "We don't sell low-context execution, and we don't raise a pool to behave like capital allocators.",
+      "We don't sell slide-ready theater, and we don't pool capital to play allocator.",
     body:
-      'We operate as a venture + execution studio: we build ventures, engineer GTM systems, and deploy AI-enabled workflows in live environments. Sometimes that means embedding with operators inside large enterprises; sometimes it means running our own products end-to-end.\n\nExecution is the common thread. If you need a commodity vendor or a fund manager, we are the wrong fit.',
+      'We operate as a venture + execution studio: ventures prove our opinions under market pressure; client work keeps us inside real constraints — commerce, regulated tools, and serious GTM.\n\nExecution is the spine. If you need commodity staffing or a fund partner, say so early — we are the wrong room.',
   },
   machine: {
-    title: 'Operating model.',
-    lead: 'Studio structure; system-level ownership.',
+    title: 'Studio operating model.',
+    lead: 'Dual track; single execution discipline.',
     body:
-      'Nextgrid Digital functions as a studio. Work is structured around systems, not tasks. Ownership extends beyond delivery milestones into reliability, adoption, and post-launch variance.',
+      'Internal ventures and partner systems share versioning, telemetry expectations, and scope ethics. Work is framed as systems — not interchangeable tickets — with ownership past go-live.',
   },
 } as const
 
 export const identityPillars = {
   human: [
     {
-      title: 'Outcomes, not output',
-      body: 'We measure success by whether the system survives contact with customers and operators — not by deliverable counts.',
+      title: 'One accountable loop',
+      body: 'Strategy, interface, and services stay co-owned so intent does not dissolve between meetings.',
     },
     {
-      title: 'Narrative × system',
-      body: 'Story, UX, and backend are one loop. When they drift, execution fails; we keep them aligned.',
+      title: 'Proof in market',
+      body: 'We run studio ventures and regulated-grade client work — advice is grounded in production, not posture.',
     },
     {
-      title: 'Honest scope',
-      body: 'We will tell you when an idea needs a smaller first release — or when you are underestimating the integration work.',
+      title: 'Scope honesty',
+      body: 'We will push for a smaller first release when that is the truth — or flag integration work leadership is underestimating.',
     },
   ],
   machine: [
     {
-      title: 'Outcome metrics',
-      body: 'Success criteria tied to live usage, error budgets, and conversion — not milestone checklists.',
+      title: 'Single ownership chain',
+      body: 'One team traces narrative, UX, and services; shared definitions of done tied to live signals.',
     },
     {
-      title: 'Single loop',
-      body: 'Narrative, interface, and services ship as one versioned system.',
+      title: 'Evidence base',
+      body: 'Ventures + client domains provide falsifiable patterns for architecture and GTM decisions.',
     },
     {
-      title: 'Constraint-first scoping',
-      body: 'Releases sized to observable risk; explicit technical and organisational bounds.',
+      title: 'Risk-sized releases',
+      body: 'Releases bounded by measurable risk; explicit non-goals per slice.',
     },
   ],
 } as const
 
 export const theShift = {
   human: {
-    title: 'The way work gets done is changing.',
+    title: 'Execution changed. Most org charts have not.',
     body:
-      'Execution is moving away from people-heavy coordination toward small, reliable systems — automation where it earns trust, human judgment where it matters.\n\nMost teams feel that shift in their bones long before their org chart catches up. The hard part is moving without Trading clarity for speed.\n\nWe build with you in that messy middle: enough structure to ship, enough slack to learn.',
+      'Coordination is shifting from meeting-heavy chains to small, reliable systems — automation where trust is earned, humans where context is irreplaceable.\n\nTeams feel that shift long before procurement catches up. The hard part is moving without trading clarity for theater.\n\nWe work in that middle: enough rigor to ship, enough honesty to learn.',
   },
   machine: {
-    title: 'Execution is being restructured.',
+    title: 'Restructuring execution.',
     body:
-      'Manual coordination is being replaced by orchestrated, instrumented workflows. The binding constraint is reliability and observability — not raw ideation throughput.',
+      'Manual orchestration yields to instrumented workflows. Constraint moves from ideation throughput to reliability, observability, and governed change.',
   },
 } as const
 
@@ -91,93 +92,94 @@ export const whyOldModelsBreak = {
   human: {
     title: 'Where execution breaks.',
     body:
-      'When every discipline optimises locally, nobody owns the whole. The result is familiar: slick decks, beautiful Figma files, brittle production, and marketing that learned to live with „good enough“ analytics.',
-    closing: 'We collapse that distance — one team, one loop, one reality check at a time.',
+      'When every function optimizes locally, no one owns the whole. You get beautiful decks, pristine files, brittle production, and GTM living beside — not on — product truth.',
+    closing: 'We collapse that distance: one loop, one reality check at a time.',
   },
   machine: {
-    title: 'Fragmentation problem.',
+    title: 'Fragmentation tax.',
     body:
-      'Isolated workflows export intent loss as a by-product. Handoffs add latency, ambiguity, and unowned failure modes.',
-    closing: 'Integration replaces handoff; shared telemetry replaces narrative drift.',
+      'Isolated workflows export ambiguity. Handoffs add latency, unowned failure modes, and drifting intent.',
+    closing: 'Integrate work; share telemetry; retire narrative drift.',
   },
 } as const
 
 export const fragmentationCards = {
   human: [
-    { label: 'Strategy', detail: 'Keeps its powerpoint—and rarely meets the release train.' },
-    { label: 'Design', detail: 'Perfect in the file, under-tested in the wild.' },
-    { label: 'Engineering', detail: 'Optimises for sprint velocity while UX debt silently compounds.' },
-    { label: 'Go-to-market', detail: 'Runs on channels that were never wired into the product truth.' },
+    { label: 'Strategy', detail: 'Stays in the deck — rarely rides the release train.' },
+    { label: 'Design', detail: 'Wins in review; under-tested against real load and edge cases.' },
+    { label: 'Engineering', detail: 'Sprint velocity masks integration and UX debt.' },
+    { label: 'Go-to-market', detail: 'Campaigns and product data never share a source of truth.' },
   ],
   machine: [
-    { label: 'Strategy layer', detail: 'Documented intent diverges from deployed behaviour.' },
-    { label: 'Experience layer', detail: 'Design artefacts lack production parity.' },
-    { label: 'Build layer', detail: 'Throughput metrics hide integration fragility.' },
-    { label: 'Distribution layer', detail: 'Campaign and product data models misaligned.' },
+    { label: 'Strategy layer', detail: 'Declared intent diverges from deployed behavior.' },
+    { label: 'Experience layer', detail: 'Design artifacts lack production parity.' },
+    { label: 'Build layer', detail: 'Throughput metrics hide fragility under traffic.' },
+    { label: 'Distribution layer', detail: 'Attribution models disconnected from product events.' },
   ],
 } as const
 
 export const stance = {
   human: {
     title: 'Our stance.',
-    pullQuote: 'Thinking and building are not sequential phases. They are the same motion, at different zoom levels.',
+    pullQuote:
+      'Thinking and building are not phases in sequence. They are the same motion at different zoom levels.',
     body:
-      "We learn the business, shape the narrative, design the interfaces, and write the software that has to hold up on a Tuesday afternoon — not just in a workshop.\n\nThat means fewer hero slides and more boring, reliable releases. It means we sometimes say slow down before we say ship.",
+      'We learn the business, shape narrative, design what ships, and write the code that has to survive Tuesday afternoon — not just a workshop wall.\n\nFewer hero moments. More boring, reliable releases. Sometimes we say “slow down” before we say “ship.”',
   },
   machine: {
     title: 'Execution stance.',
-    pullQuote: 'Specification, implementation, and validation are one feedback system.',
+    pullQuote: 'Specify, ship, observe — one feedback system.',
     body:
-      'Business context, narrative, interface, and services are co-versioned. Decisions are falsifiable against production signals.',
+      'Context, narrative, interface, and services are co-versioned. Hypotheses terminate on production evidence.',
   },
 } as const
 
 export const howWeOperate = {
   human: {
     title: 'How we operate.',
-    intro: 'No secret methodology deck — just habits that keep systems honest.',
+    intro: 'No secret methodology PDF — habits that keep promises aligned with reality.',
   },
   machine: {
     title: 'Operating loop.',
-    intro: 'Invariant process across engagements.',
+    intro: 'Repeating cadence across engagements.',
   },
 } as const
 
 export const operatingSteps = {
   human: [
     {
-      title: 'Sit with the problem',
-      text: 'We interview operators, read the data you already have, and watch real workflows before we propose architecture.',
+      title: 'Ground in the work',
+      text: 'We talk to operators, read existing data, and watch workflows before we name architecture.',
     },
     {
       title: 'Ship a thin slice',
-      text: 'The first release is embarrassingly small on purpose — so reality can argue with our assumptions early.',
+      text: 'The first release is deliberately small — so reality can challenge us early.',
     },
     {
-      title: 'Instrument and watch',
-      text: 'If we cannot see adoption, errors, and latency, we are guessing. We wire observability in like it is part of the feature.',
+      title: 'Instrument first-class',
+      text: 'Adoption, errors, latency: if we cannot see them, we are guessing. Telemetry ships with the feature.',
     },
     {
       title: 'Iterate in public',
-      text: 'Priorities change when customers arrive. We re-plan in weeks, not quarters — and we document what we learned.',
+      text: 'Customers change priorities. We re-plan in weeks, document decisions, and keep the trail readable.',
     },
   ],
   machine: [
     {
       title: 'Discover',
-      text: 'Map constraints, actors, and existing signals.',
+      text: 'Map constraints, actors, signals in place today.',
     },
     {
       title: 'Slice',
-      text: 'Minimum viable release with telemetry.',
+      text: 'Minimum release that exercises risk with telemetry attached.',
     },
     {
       title: 'Observe',
-      text: 'Measure adoption, failure modes, latency.',
+      text: 'Measure adoption, failure modes, latency distributions.',
     },
     {
       title: 'Refine',
-      text: 'Re-scope against production evidence.',
+      text: 'Re-scope from evidence; archive disproved assumptions.',
     },
   ],
 } as const
@@ -186,13 +188,13 @@ export const proof = {
   human: {
     title: 'Built through doing.',
     intro:
-      'We did not learn execution from slides. Our perspective comes from live systems: enterprise logistics, GTM communities, venture operators, and products we run ourselves.',
+      'Perspective comes from systems we have lived in: commerce-scale distribution, regulated customer and internal flows, GenAI with real guardrails, and ventures we run ourselves.',
   },
   machine: {
     title: 'Execution record.',
-    intro: 'Representative domains and operator contexts:',
+    intro: 'Representative contexts:',
     bodyEnd:
-      'All systems exercised under production constraints with measurable accountability.',
+      'Work is exercised under production constraints with explicit accountability for outcomes.',
   },
 } as const
 
@@ -201,68 +203,68 @@ export const proofAreas = {
     {
       title: 'Commerce & luxury',
       detail:
-        'Distribution and marketing systems for jewellery and brand-led retail — where seasonality, trust, and margin leave no room for hand-wavy analytics.',
+        'Lifecycle marketing and distribution where margin, seasonality, and trust allow no hand-wavy reporting.',
     },
     {
-      title: 'GenAI at platform scale',
+      title: 'GenAI at scale',
       detail:
-        'Experimentation inside large commerce environments — guardrails, evals, and the boring integration work that keeps models safe in checkout.',
+        'Model experimentation with eval harnesses and integration work that keeps checkout and customer data safe.',
     },
     {
-      title: 'Fintech & insurance',
+      title: 'Regulated & fintech',
       detail:
-        'Internal tools and customer-facing flows where audit trails, permissions, and edge cases are the product.',
+        'Permissions, audit trails, and edge cases treated as product — not post-launch surprises.',
     },
     {
       title: 'Studio ventures',
       detail:
-        'Products we own end-to-end — so our advice to partners is never purely theoretical.',
+        'Owned products — so recommendations to partners are never purely academic.',
     },
   ],
   machine: [
-    { title: 'Commerce', detail: 'Distribution and lifecycle marketing systems.' },
-    { title: 'Generative systems', detail: 'Scaled experimentation with evaluation harnesses.' },
-    { title: 'Regulated domains', detail: 'Compliance-aware tooling and workflows.' },
-    { title: 'Owned products', detail: 'Ventures operated as live architectural testbeds.' },
+    { title: 'Commerce systems', detail: 'Distribution and retention instrumentation.' },
+    { title: 'Generative stack', detail: 'Evaluation, routing, and production integration.' },
+    { title: 'Compliance surfaces', detail: 'Controls-aware UX and services.' },
+    { title: 'Owned portfolio', detail: 'Ventures as live architectural probes.' },
   ],
 } as const
 
 export const distribution = {
   human: {
-    title: "Execution doesn't end at launch.",
+    title: "Launch is the beginning of honest work.",
     body:
-      'Launch is when the system meets honest users, load, and edge cases — not when the agency deck gets a gold star.\n\nWe stay involved through distribution, onboarding, feedback loops, and the unglamorous work of tuning what you already shipped. We leave when the system is boringly stable — or when your team is ready to run it without us.',
+      'Go-live is when real users, load, and weird edge cases arrive — not when a case study ships.\n\nWe stay for onboarding, feedback loops, tuning, and the unglamorous fixes. We step back when the system is stable enough for your team to run — or when you no longer need us.',
   },
   machine: {
-    title: 'Distribution layer.',
+    title: 'Post-deploy execution.',
     body:
-      'Execution includes deployment, onboarding instrumentation, feedback ingestion, and iteration cadence.\nHandoff is not a terminal state; operational readiness is.',
+      'Onboarding instrumentation, feedback ingestion, and iteration are part of scope. Operational readiness defines completion — not a sign-off memo.',
   },
 } as const
 
 export const learning = {
   human: {
-    title: 'Learning is built in.',
+    title: 'Learning is operational, not decorative.',
     body:
-      'We stay current by running experiments, not by reading trend threads. New models and tools get a ticket only after they have survived a real workflow in our studio or with a brave client.\n\nWe write publicly — not to posture, but to think clearly. This site, and our Thinking archive, are part of that loop.',
+      'We test tools and models in real workflows — ours and brave clients’ — before they earn a roadmap slot.\n\nWe write in **Thinking** to clarify judgment under pressure, not to posture. This site is part of that practice.',
   },
   machine: {
-    title: 'R&D posture.',
+    title: 'R&D discipline.',
     body:
-      'Continuous evaluation of tools and architectures against live workflows.\nHypotheses are retired quickly when disconfirmed by data.',
+      'Hypotheses live in workflows. Tools retire quickly when disconfirmed by data.',
   },
 } as const
 
 export const ventures = {
   human: {
-    title: 'Ventures are core, not side projects.',
+    title: 'Ventures are core — not a hobby page.',
     body:
-      'Our ventures are where our strongest opinions are tested: product, GTM engineering, AI workflows, and distribution economics. They are built to be valuable operating assets — and in the right context, acquirable ones.',
+      'Studio ventures are where we stress-test product, GTM engineering, AI orchestration, and distribution economics. They stay designed to be durable assets — and, in the right context, acquirable ones.',
   },
   machine: {
     title: 'Venture engine.',
     body:
-      'Studio-operated ventures function as production-grade laboratories for GTM systems, AI orchestration, and commercialization pathways.',
+      'Internal products serve as production-grade experiments for commercialization pathways and automation design.',
   },
 } as const
 
@@ -270,32 +272,32 @@ export const venturesTeaser = {
   human: [
     {
       name: 'CollectFast',
-      blurb: 'Tools and workflows for teams who need reliable intake and fulfilment.',
+      blurb: 'Operational intake and fulfilment when volume and clarity both matter.',
       to: '/ventures/collectfast' as const,
     },
     {
       name: 'BeOnly',
-      blurb: 'Product experiments at the edge of brand and automation.',
+      blurb: 'Constraint-led product UX where complexity kills conversion.',
       to: '/ventures/beonly' as const,
     },
     {
       name: 'CAS Parser',
-      blurb: 'Structured extraction where messy documents meet strict downstream systems.',
+      blurb: 'Documents in chaos → structured pipelines downstream systems trust.',
       to: '/ventures/cas-parser' as const,
     },
   ],
   machine: [
     { name: 'CollectFast', blurb: 'Intake / fulfilment system family.', to: '/ventures/collectfast' as const },
-    { name: 'BeOnly', blurb: 'Brand-meets-automation R&D.', to: '/ventures/beonly' as const },
-    { name: 'CAS Parser', blurb: 'Document → structured data pipeline.', to: '/ventures/cas-parser' as const },
+    { name: 'BeOnly', blurb: 'Automation × brand R&D.', to: '/ventures/beonly' as const },
+    { name: 'CAS Parser', blurb: 'Parse → structured pipeline.', to: '/ventures/cas-parser' as const },
   ],
 } as const
 
 export const filter = {
   human: {
-    title: 'Who this is for.',
+    title: 'Who we work best with.',
     intro:
-      'We stay on the serious end of the market: enterprise operators, ambitious founders, and strategic acquirers/investors.',
+      'We skew toward serious operators — enterprise leaders, founders under real market pressure, and strategic capital that cares how execution actually happens.',
   },
   machine: {
     title: 'Engagement criteria.',
@@ -306,44 +308,44 @@ export const filter = {
 export const fitMatrix = {
   human: {
     yes: [
-      'You are an enterprise operator, serious founder, or strategic acquirer/investor with high-stakes execution needs.',
-      'You want a partner who can build ventures and engineer GTM + AI systems under real constraints.',
-      'You can provide access to decision-makers, operators, and ground-truth data.',
-      'You value long-term system quality over short-term output theater.',
+      'You need one accountable loop across narrative, product, and GTM — not another handoff vendor.',
+      'You will give access to decision-makers, operators, and ground-truth data.',
+      'You care about post-launch behavior as much as launch theater.',
+      'You want venture-grade honesty about scope, risk, and governance — especially around AI.',
     ],
     no: [
-      'You need commodity delivery, offshore ticket throughput, or lowest-bid execution.',
-      'You want AI theatre without governance, accountability, or operator oversight.',
-      'You are evaluating partners only on day-rate and not on strategic outcome.',
+      'You need the lowest hourly rate or undifferentiated staffing augmentation.',
+      'You want autonomous AI demos without review, auditability, or operator control.',
+      'You buy partners on deck polish alone — not evidence from production.',
     ],
   },
   machine: {
     yes: [
-      'Enterprise/founder/strategic-capital stakeholder profile.',
-      'Requires integrated venture + GTM engineering + AI execution loop.',
-      'Decision authority and production data access available.',
-      'Accepts telemetry-driven reprioritisation and governance constraints.',
+      'Integrated venture + systems + GTM engineering requirement.',
+      'Decision authority and production telemetry available.',
+      'Governance constraints accepted as design input.',
+      'Outcome metrics preferred over throughput vanity.',
     ],
     no: [
-      'Commodity staff-augmentation or ticket-only procurement model.',
-      'Uncontrolled agentic experimentation without review controls.',
-      'Cost-minimisation objective dominates outcome quality.',
+      'Ticket-only procurement without ownership definition.',
+      'Uncontrolled agentic surface area in regulated contexts.',
+      'Cost minimization dominates measurable outcome quality.',
     ],
   },
 } as const
 
 export const invitation = {
   human: {
-    title: 'If this is your level of ambition.',
+    title: 'If that sounds like your bar.',
     body:
-      'Bring us enterprise-grade problems, venture opportunities, or strategic GTM execution mandates. We respond with clear fit, scope, and execution logic — and we will tell you directly if we are not the right partner.',
+      'Bring board-level problems, venture mandates, or execution that cannot survive another silent handoff. We answer with direct fit, a first slice, and the politics of scope spelled out — including when we are not the partner.',
     cta: 'Start a conversation',
     secondaryCta: { label: 'Email the studio', to: '/contact' as const },
   },
   machine: {
     title: 'Initiate contact.',
     body:
-      'Provide context, constraints, capital/mandate profile, and success metrics. Response includes fit classification and execution pathway.',
+      'Submit constraints, mandate, success metrics, and risk posture. Response includes fit class, proposed slice, and telemetry plan.',
     cta: 'Open a channel',
     secondaryCta: { label: 'Contact', to: '/contact' as const },
   },
@@ -351,28 +353,43 @@ export const invitation = {
 
 export const bridge = {
   human: {
-    body: "You are reading the human lens — narrative, intent, and judgment first.\nSwitch to Machine for a tighter, systems-forward read. Same facts; different emphasis.",
+    body: "You're on the **Human** lens — narrative, intent, and judgment first.\nSwitch to **Machine** for structure, signals, and crisper phrasing. Same facts; different emphasis.",
   },
   machine: {
-    body: "Machine lens: structure, signals, and outcomes first.\nSwitch to Human for narrative framing.",
+    body: '**Machine** lens: systems, signals, outcomes first.\nSwitch to **Human** when you want the story and trade-offs explicit.',
   },
 } as const
 
 export const footerStatement = {
   human:
-    'Nextgrid Digital is a venture and execution studio. We build, ship, and learn in public.',
+    'Nextgrid Digital — a venture and execution studio. We build, ship, and learn in public.',
   machine:
-    'Nextgrid Digital operates at the intersection of intent, systems, and measured execution.',
+    'Nextgrid Digital — intent, systems, and measured execution in one loop.',
+} as const
+
+export const footerPromo = {
+  human: {
+    title: 'Work with the studio',
+    body: 'Tell us what is on fire. We will answer with fit and a concrete first slice — or a fast no.',
+    ctaLabel: 'Get in touch',
+    ctaTo: '/contact' as const,
+  },
+  machine: {
+    title: 'Engage',
+    body: 'Structured intake. Fit classification and scope proposal.',
+    ctaLabel: 'Contact',
+    ctaTo: '/contact' as const,
+  },
 } as const
 
 export const proofImageCaption = {
-  human: 'Representative work across commerce, regulated tools, and studio products.',
-  machine: 'Execution record under production constraints.',
+  human: 'Commerce, regulated environments, AI at scale — and ventures we operate ourselves.',
+  machine: 'Production-grade contexts across portfolio.',
 } as const
 
 export const venturesImageCaption = {
-  human: 'Ventures stay our laboratory for opinionated product and systems design.',
-  machine: 'Internal products as architectural testbeds.',
+  human: 'Ventures pressure-test how we think about product and GTM before clients pay the tuition.',
+  machine: 'Internal products as architecture lab.',
 } as const
 
 export const testimonials = [
@@ -381,21 +398,21 @@ export const testimonials = [
     role: 'Head of Product',
     company: 'Enterprise commerce',
     quote:
-      'They stayed in the loop after launch — metrics, bugs, and customer weirdness included. That is rarer than anyone admits.',
+      'They stayed after launch — metrics, bugs, customer weirdness. That is rarer than vendors admit.',
   },
   {
     name: 'James Okonkwo',
     role: 'Founder',
     company: 'Fintech',
     quote:
-      'We needed execution that could keep up with our ambition. They understood the business, wrote the sharp end of the narrative, and shipped software we actually ran.',
+      'They understood the business, sharpened narrative, and shipped software we actually ran in prod.',
   },
   {
     name: 'Maya Reddy',
     role: 'COO',
     company: 'Luxury retail brand',
     quote:
-      'They ran our distribution and marketing systems like owners. No handoff theatre — just continuous improvement.',
+      'They treated our distribution stack like owners. No handoff theatre — continuous improvement.',
   },
 ] as const
 
@@ -404,26 +421,25 @@ export const recentBlogPosts = [
     title: 'Execution',
     to: '/thinking/execution',
     excerpt:
-      'From intent to shipped software: why most roadmaps lie, and how we keep releases honest.',
+      'Why roadmaps lie — and how thin slices keep releases falsifiable.',
   },
   {
     title: 'Systems',
     to: '/thinking/systems',
     excerpt:
-      'Interfaces, services, and org design as one system — patterns that survive scale and turnover.',
+      'Interfaces, services, and org design as one system under turnover and scale.',
   },
   {
     title: 'Learning in public',
     to: '/thinking/learning-in-public',
     excerpt:
-      'Writing as a forcing function: what we share when a build is messy, late, or wrong.',
+      'Writing when a build is late, messy, or simply wrong.',
   },
 ] as const
 
-/** Machine-mode proof list (legacy shape for render branch). */
 export const proofMachineBullets = [
-  'Commerce distribution systems',
-  'Generative experimentation at platform scale',
-  'Internal tooling in regulated domains',
-  'Self-operated ventures',
+  'Commerce and lifecycle systems',
+  'Generative AI with evaluation and controls',
+  'Regulated and fintech-grade flows',
+  'Studio-owned ventures',
 ] as const

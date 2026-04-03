@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { thinkingIndexCopy } from '@/data/marketing-pages'
 import { getGhostPostBySlug } from '@/lib/ghost'
 
 export const Route = createFileRoute('/thinking/$slug')({
@@ -10,7 +11,7 @@ export const Route = createFileRoute('/thinking/$slug')({
   head: ({ loaderData }) => {
     const post = loaderData?.post
     const title = post ? `${post.title} | Thinking | Nextgrid Digital` : 'Thinking | Nextgrid Digital'
-    const description = post?.excerpt ?? 'Post from Nextgrid Digital.'
+    const description = post?.excerpt ?? thinkingIndexCopy.metaDescription
     const meta: Array<{ title?: string; name?: string; property?: string; content?: string }> = [
       { title },
       { name: 'description', content: description },

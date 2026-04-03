@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { PageLayout } from '@/components/PageLayout'
+import { thinkingEmpty, thinkingIndexCopy } from '@/data/marketing-pages'
 import { getGhostPostsByTag } from '@/lib/ghost'
 
 export const Route = createFileRoute('/thinking/systems')({
@@ -13,7 +14,7 @@ export const Route = createFileRoute('/thinking/systems')({
       { title: 'Systems | Thinking | Nextgrid Digital' },
       {
         name: 'description',
-        content: 'Posts on systems thinking and design.',
+        content: `${thinkingIndexCopy.taglineSystems} — Thinking | Nextgrid Digital.`,
       },
     ],
   }),
@@ -22,10 +23,7 @@ export const Route = createFileRoute('/thinking/systems')({
 function SystemsPage() {
   const { posts } = Route.useLoaderData()
   return (
-    <PageLayout
-      title="Systems"
-      description="Thoughts on systems and how they work."
-    >
+    <PageLayout title="Systems" description={thinkingIndexCopy.taglineSystems}>
       {posts.length > 0 ? (
         <ul className="mt-6 space-y-0 list-none p-0">
           {posts.map((post) => (
@@ -45,9 +43,7 @@ function SystemsPage() {
           ))}
         </ul>
       ) : (
-        <p className="site-muted">
-          Posts tagged Systems will appear here when Ghost is configured.
-        </p>
+        <p className="site-muted">{thinkingEmpty.tag}</p>
       )}
     </PageLayout>
   )

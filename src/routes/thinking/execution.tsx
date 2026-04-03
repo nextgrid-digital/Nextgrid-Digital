@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { PageLayout } from '@/components/PageLayout'
+import { thinkingEmpty, thinkingIndexCopy } from '@/data/marketing-pages'
 import { getGhostPostsByTag } from '@/lib/ghost'
 
 export const Route = createFileRoute('/thinking/execution')({
@@ -13,7 +14,7 @@ export const Route = createFileRoute('/thinking/execution')({
       { title: 'Execution | Thinking | Nextgrid Digital' },
       {
         name: 'description',
-        content: 'Posts on execution and getting things done.',
+        content: `${thinkingIndexCopy.taglineExecution} — Thinking | Nextgrid Digital.`,
       },
     ],
   }),
@@ -22,10 +23,7 @@ export const Route = createFileRoute('/thinking/execution')({
 function ExecutionPage() {
   const { posts } = Route.useLoaderData()
   return (
-    <PageLayout
-      title="Execution"
-      description="Thoughts on execution and getting things done."
-    >
+    <PageLayout title="Execution" description={thinkingIndexCopy.taglineExecution}>
       {posts.length > 0 ? (
         <ul className="mt-6 space-y-0 list-none p-0">
           {posts.map((post) => (
@@ -45,9 +43,7 @@ function ExecutionPage() {
           ))}
         </ul>
       ) : (
-        <p className="site-muted">
-          Posts tagged Execution will appear here when Ghost is configured.
-        </p>
+        <p className="site-muted">{thinkingEmpty.tag}</p>
       )}
     </PageLayout>
   )

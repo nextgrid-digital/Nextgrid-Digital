@@ -1,20 +1,21 @@
 import { Link } from '@tanstack/react-router'
 import { useMode } from '@/context/ModeContext'
 import { useTheme } from '@/context/ThemeContext'
-import { footerStatement } from '@/data/home-copy'
+import { footerPromo, footerStatement } from '@/data/home-copy'
 import { footerGroups } from '@/data/navigation'
 
 export default function Footer() {
   const { mode } = useMode()
   const { theme, setTheme } = useTheme()
+  const promo = footerPromo[mode]
   return (
     <footer className="site-footer">
       <div className="site-footer-inner">
         <div className="site-footer-card">
-          <h2>Work with Nextgrid Digital</h2>
-          <p>Build faster with a team that ships.</p>
-          <Link to="/contact" viewTransition className="site-footer-cta">
-            Get in touch
+          <h2>{promo.title}</h2>
+          <p>{promo.body}</p>
+          <Link to={promo.ctaTo} viewTransition className="site-footer-cta">
+            {promo.ctaLabel}
           </Link>
         </div>
         <div className="site-footer-grid">
